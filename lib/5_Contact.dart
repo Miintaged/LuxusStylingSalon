@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-class BookASeet extends StatefulWidget {
-  const BookASeet({super.key});
+class Contact extends StatefulWidget {
+  const Contact({super.key});
 
   @override
-  State<BookASeet> createState() => _BookASeetState();
+  State<Contact> createState() => _ContactState();
 }
 
-class _BookASeetState extends State<BookASeet> {
+class _ContactState extends State<Contact> {
   List inputs = [
     {
       'placeholder': 'Datum',
