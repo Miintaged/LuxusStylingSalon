@@ -29,7 +29,10 @@ class Main extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Luxus Styling Salon',
-      theme: ThemeData(brightness: Brightness.dark),
+      theme: ThemeData(
+        brightness: Brightness.dark,
+        fontFamily: 'Oswald',
+      ),
       home: Scaffold(
         backgroundColor: greyZero,
         body: SafeArea(
