@@ -4,7 +4,8 @@ import 'package:luxus_styling_salon/1_Landing.dart';
 import 'package:luxus_styling_salon/2_About.dart';
 import 'package:luxus_styling_salon/4_Testimonials.dart';
 import 'package:luxus_styling_salon/3_Services.dart';
-import 'package:luxus_styling_salon/5_footer.dart';
+import 'package:luxus_styling_salon/5_BookASeet.dart';
+import 'package:luxus_styling_salon/6_Footer.dart';
 
 Color primaryColor = const Color.fromARGB(255, 209, 152, 38);
 Color greyZero = const Color.fromARGB(255, 25, 25, 25);
@@ -15,11 +16,12 @@ void main() => runApp(Main());
 class Main extends StatelessWidget {
   Main({super.key});
 
-  List<Widget> sections = [
+  final List<Widget> sections = [
     const Landing(),
     const About(),
     const Services(),
     const Testimoials(),
+    const BookASeet(),
     const Footer()
   ];
 
@@ -27,12 +29,14 @@ class Main extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Luxus Styling Salon',
+      theme: ThemeData(brightness: Brightness.dark),
       home: Scaffold(
+        backgroundColor: const Color.fromARGB(255, 39, 38, 38),
         body: SafeArea(
           child: Stack(
             children: [
               ListView.builder(
-                itemCount: 5,
+                itemCount: sections.length,
                 itemBuilder: (context, index) {
                   return sections[index];
                 },
