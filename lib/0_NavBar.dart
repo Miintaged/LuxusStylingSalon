@@ -30,13 +30,13 @@ class _NavbarState extends State<Navbar> {
             buttonText: 'Über uns',
           ),
           SectionButton(
-            buttonText: 'Portfolio',
+            buttonText: 'Dientleistungen',
           ),
           SectionButton(
-            buttonText: 'Dienstleistungen',
+            buttonText: 'Rezensionen',
           ),
           SectionButton(
-            buttonText: 'Produkte',
+            buttonText: 'Kontakt',
           ),
         ],
       ),

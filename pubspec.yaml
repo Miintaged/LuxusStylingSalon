@@ -51,9 +51,3 @@ dev_dependencies:
 # The following section is specific to Flutter packages.
 flutter:
   uses-material-design: true
-
-  fonts:
-    - family: NotoSerif
-      fonts:
-        - asset: luxus_styling_salon/fonts/NotoSerif-Italic-Variable.ttf
-        - asset: luxus_styling_salon/fonts/NotoSerif-Variable.ttf

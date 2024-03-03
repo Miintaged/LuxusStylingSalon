@@ -17,8 +17,29 @@ class _AboutState extends State<About> {
       decoration: BoxDecoration(
         color: main.greyOne,
       ),
-      child: const Center(
-        child: Text('About'),
+      child: Row(
+        children: [
+          SizedBox(
+            width: MediaQuery.of(context).size.width * 0.05,
+          ),
+          Container(
+            height: MediaQuery.of(context).size.height * 0.4,
+            width: MediaQuery.of(context).size.width * 0.4,
+            decoration: BoxDecoration(
+              border: Border.all(color: main.primaryColor),
+            ),
+          ),
+          SizedBox(
+            width: MediaQuery.of(context).size.width * 0.05,
+          ),
+          Container(
+            height: MediaQuery.of(context).size.height * 0.4,
+            width: MediaQuery.of(context).size.width * 0.4,
+            decoration: BoxDecoration(
+              border: Border.all(color: main.primaryColor),
+            ),
+          )
+        ],
       ),
     );
   }

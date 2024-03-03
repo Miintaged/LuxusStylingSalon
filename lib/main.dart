@@ -28,6 +28,7 @@ class Main extends StatelessWidget {
     return MaterialApp(
       title: 'Luxus Styling Salon',
       home: Scaffold(
+        backgroundColor: greyZero,
         body: SafeArea(
           child: Stack(
             children: [
