@@ -21,7 +21,11 @@ flutter:
     - assets/about.png
 
   fonts:
-    - family: NotoSerif
+    - family: Oswald
       fonts:
-        - asset: fonts/NotoSerif-Italic-Variable.ttf
-        - asset: fonts/NotoSerif-Variable.ttf
+        - asset: fonts/static/Oswald-Bold.ttf
+        - asset: fonts/static/Oswald-Medium.ttf
+        - asset: fonts/static/Oswald-Regular.ttf
+        - asset: fonts/static/Oswald-ExtraLight.ttf
+        - asset: fonts/static/Oswald-Light.ttf
+        - asset: fonts/static/Oswald-SemiBold.ttf
