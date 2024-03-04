@@ -28,9 +28,6 @@ class _AboutState extends State<About> {
       height: MediaQuery.of(context).size.height * 0.6,
       width: MediaQuery.of(context).size.width,
       padding: EdgeInsets.all(MediaQuery.of(context).size.width * 0.05),
-      decoration: BoxDecoration(
-        color: main.greyOne,
-      ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -52,7 +49,7 @@ class _AboutState extends State<About> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const  Row(
+                const Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Text(
@@ -67,13 +64,24 @@ class _AboutState extends State<About> {
                 main.verticalSpacingSmall(context),
                 Row(
                   children: [
-                    const Icon(Icons.location_pin, color: Colors.white,),
+                    const Icon(
+                      Icons.location_pin,
+                      color: Colors.white,
+                    ),
                     main.horizontalSpacingMedium(context),
-                    Row(children: [
-                      Text(adresse[0], style: const TextStyle(fontWeight: FontWeight.w100),),
-                      main.horizontalSpacingSmall(context), 
-                      Text(adresse[1], style: const TextStyle(fontWeight: FontWeight.w100),),
-                    ],)
+                    Row(
+                      children: [
+                        Text(
+                          adresse[0],
+                          style: const TextStyle(fontWeight: FontWeight.w100),
+                        ),
+                        main.horizontalSpacingSmall(context),
+                        Text(
+                          adresse[1],
+                          style: const TextStyle(fontWeight: FontWeight.w100),
+                        ),
+                      ],
+                    )
                   ],
                 ),
                 main.verticalSpacingMedium(context),
@@ -102,7 +110,11 @@ class _AboutState extends State<About> {
                         children: [
                           Expanded(
                             flex: 3,
-                            child: Text(weekdays[index][0], style: const TextStyle(fontWeight: FontWeight.w200),),
+                            child: Text(
+                              weekdays[index][0],
+                              style:
+                                  const TextStyle(fontWeight: FontWeight.w200),
+                            ),
                           ),
                           main.horizontalSpacingLarge(context),
                           Expanded(
@@ -115,7 +127,11 @@ class _AboutState extends State<About> {
                           main.horizontalSpacingLarge(context),
                           Expanded(
                             flex: 2,
-                            child: Text(weekdays[index][1], style: const TextStyle(fontWeight: FontWeight.w200),),
+                            child: Text(
+                              weekdays[index][1],
+                              style:
+                                  const TextStyle(fontWeight: FontWeight.w200),
+                            ),
                           )
                         ],
                       );

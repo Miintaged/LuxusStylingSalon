@@ -16,9 +16,6 @@ class _TestimoialsState extends State<Testimoials> {
       padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.05),
       height: MediaQuery.of(context).size.height * 0.6,
       width: MediaQuery.of(context).size.width,
-      decoration: BoxDecoration(
-        color: main.greyOne,
-      ),
       child: Row(
         children: [
           Stack(
@@ -62,7 +59,9 @@ class _TestimoialsState extends State<Testimoials> {
                       ),
                     ],
                   ),
-                  SizedBox(height: MediaQuery.of(context).size.height * 0.04,),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.04,
+                  ),
                   const Text(
                     'I was very happy because I chose my hairstyle here.',
                     style: TextStyle(

@@ -66,11 +66,11 @@ class Gallery extends StatelessWidget {
     double width = MediaQuery.of(context).size.width;
     return LayoutBuilder(
       builder: (context, constraints) {
-        if (constraints.maxWidth <= 800) {
+        /* if (constraints.maxWidth <= 800) {
           return Text('mobile');
-        }
+        } */
         return SizedBox(
-          height: width * .7,
+          height: constraints.maxWidth <= 800 ? height * .525 : width * .7,
           width: width,
           child: Container(
             padding: EdgeInsets.symmetric(
