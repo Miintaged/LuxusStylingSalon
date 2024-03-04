@@ -19,10 +19,22 @@ class _NavbarState extends State<Navbar> {
 
   @override
   Widget build(BuildContext context) {
+    return MobileNavBar();
+  }
+}
+
+class MobileNavBar extends StatelessWidget {
+  const MobileNavBar({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
     return Container(
       height: MediaQuery.of(context).size.height * 0.09,
       width: MediaQuery.of(context).size.width,
-      padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width * 0.05),
+      padding: EdgeInsets.symmetric(
+          horizontal: MediaQuery.of(context).size.width * 0.05),
       color: Colors.white.withOpacity(0.1),
       child: Row(
         children: [
@@ -40,9 +52,9 @@ class _NavbarState extends State<Navbar> {
               )
             ],
           ),
-          main.horizontalSpacingLarge(context),
-          main.horizontalSpacingLarge(context),
-          main.horizontalSpacingLarge(context),
+          SizedBox(
+            width: MediaQuery.of(context).size.width * 0.15,
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
@@ -67,24 +79,111 @@ class _NavbarState extends State<Navbar> {
               ),
             ],
           ),
-          const Spacer(),
+          SizedBox(
+            width: MediaQuery.of(context).size.width * 0.15,
+          ),
           Row(
             children: [
               GestureDetector(
                 onTap: () {},
                 child: Container(
-                  color: Colors.red,
-                    padding: const EdgeInsets.all(20),
-                    child: SvgPicture.asset(
-                        'LuxusStylingSalon/icons/instagram.svg')),
+                  padding: const EdgeInsets.all(25),
+                  child: SvgPicture.asset('assets/icons/instagram.svg',
+                      width: 30, height: 30, color: Colors.white),
+                ),
               ),
               GestureDetector(
                 onTap: () {},
                 child: Container(
-                  color: Colors.red,
-                    padding: const EdgeInsets.all(20),
-                    child:
-                        SvgPicture.asset('LuxusStylingSalon/icons/tiktok.svg')),
+                  padding: const EdgeInsets.all(25),
+                  child: SvgPicture.asset('assets/icons/tiktok.svg',
+                      width: 30, height: 30, color: Colors.white),
+                ),
+              ),
+            ],
+          )
+        ],
+      ),
+    );
+  }
+}
+
+class DesktopNavBar extends StatelessWidget {
+  const DesktopNavBar({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: MediaQuery.of(context).size.height * 0.09,
+      width: MediaQuery.of(context).size.width,
+      padding: EdgeInsets.symmetric(
+          horizontal: MediaQuery.of(context).size.width * 0.05),
+      color: Colors.white.withOpacity(0.1),
+      child: Row(
+        children: [
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(
+                CupertinoIcons.scissors,
+                size: 40,
+                color: main.primaryColor,
+              ),
+              Text(
+                'Luxus Styling Salon',
+                style: TextStyle(color: main.primaryColor),
+              )
+            ],
+          ),
+          SizedBox(
+            width: MediaQuery.of(context).size.width * 0.15,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              const SectionButton(
+                buttonText: 'Home',
+              ),
+              main.horizontalSpacingMedium(context),
+              const SectionButton(
+                buttonText: 'Über uns',
+              ),
+              main.horizontalSpacingMedium(context),
+              const SectionButton(
+                buttonText: 'Dientleistungen',
+              ),
+              main.horizontalSpacingMedium(context),
+              const SectionButton(
+                buttonText: 'Rezensionen',
+              ),
+              main.horizontalSpacingMedium(context),
+              const SectionButton(
+                buttonText: 'Kontakt',
+              ),
+            ],
+          ),
+          SizedBox(
+            width: MediaQuery.of(context).size.width * 0.15,
+          ),
+          Row(
+            children: [
+              GestureDetector(
+                onTap: () {},
+                child: Container(
+                  padding: const EdgeInsets.all(25),
+                  child: SvgPicture.asset('assets/icons/instagram.svg',
+                      width: 30, height: 30, color: Colors.white),
+                ),
+              ),
+              GestureDetector(
+                onTap: () {},
+                child: Container(
+                  padding: const EdgeInsets.all(25),
+                  child: SvgPicture.asset('assets/icons/tiktok.svg',
+                      width: 30, height: 30, color: Colors.white),
+                ),
               ),
             ],
           )
@@ -115,6 +214,7 @@ class SectionButton extends StatelessWidget {
         buttonText,
         style: TextStyle(
           fontSize: MediaQuery.of(context).size.width * 0.015,
+          fontWeight: FontWeight.w100,
           color: Colors.white,
         ),
       ),
