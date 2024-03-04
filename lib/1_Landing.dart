@@ -153,6 +153,7 @@ class _LandingState extends State<Landing> {
                     child: Image.asset(
                       'assets/img/landingpage.jpeg',
                       width: MediaQuery.of(context).size.width * .4,
+                      height: MediaQuery.of(context).size.height * .7,
                     ),
                   ),
           ],

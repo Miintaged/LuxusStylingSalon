@@ -2,6 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:luxus_styling_salon/main.dart' as main;
+import 'package:url_launcher/url_launcher.dart';
+
+Uri instagram_url = Uri.parse('https://www.instagram.com/luxus_styling_salon/');
+Uri tiktok_url = Uri.parse('https://www.tiktok.com/@luxusstylingsalon');
 
 class Navbar extends StatefulWidget {
   const Navbar({super.key});
@@ -19,7 +23,9 @@ class _NavbarState extends State<Navbar> {
 
   @override
   Widget build(BuildContext context) {
-    return MobileNavBar();
+    return MediaQuery.of(context).size.width > 800
+        ? const DesktopNavBar()
+        : const MobileNavBar();
   }
 }
 
@@ -38,50 +44,18 @@ class MobileNavBar extends StatelessWidget {
       color: Colors.white.withOpacity(0.1),
       child: Row(
         children: [
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Icon(
-                CupertinoIcons.scissors,
-                size: 40,
-                color: main.primaryColor,
-              ),
-              Text(
-                'Luxus Styling Salon',
-                style: TextStyle(color: main.primaryColor),
-              )
-            ],
-          ),
-          SizedBox(
-            width: MediaQuery.of(context).size.width * 0.15,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              const SectionButton(
-                buttonText: 'Home',
-              ),
-              main.horizontalSpacingMedium(context),
-              const SectionButton(
-                buttonText: 'Über uns',
-              ),
-              main.horizontalSpacingMedium(context),
-              const SectionButton(
-                buttonText: 'Dientleistungen',
-              ),
-              main.horizontalSpacingMedium(context),
-              const SectionButton(
-                buttonText: 'Rezensionen',
-              ),
-              main.horizontalSpacingMedium(context),
-              const SectionButton(
-                buttonText: 'Kontakt',
-              ),
-            ],
-          ),
-          SizedBox(
-            width: MediaQuery.of(context).size.width * 0.15,
-          ),
+          IconButton(
+            focusColor: Colors.transparent,
+            highlightColor: Colors.transparent,
+            hoverColor: Colors.transparent,
+              onPressed: () {
+                Scaffold.of(context).openDrawer();
+              },
+              icon: const Icon(
+                Icons.menu,
+                size: 35,
+              )),
+          const Spacer(),
           Row(
             children: [
               GestureDetector(
