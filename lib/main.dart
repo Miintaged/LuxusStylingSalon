@@ -39,6 +39,7 @@ class Main extends StatelessWidget {
           child: Stack(
             children: [
               ListView.builder(
+                physics: const BouncingScrollPhysics(),
                 itemCount: sections.length,
                 itemBuilder: (context, index) {
                   return sections[index];
