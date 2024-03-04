@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:luxus_styling_salon/main.dart' as main;
 
 class Navbar extends StatefulWidget {
   const Navbar({super.key});
@@ -20,24 +21,60 @@ class _NavbarState extends State<Navbar> {
     return Container(
       height: MediaQuery.of(context).size.height * 0.09,
       width: MediaQuery.of(context).size.width,
-      child: const Row(
-        mainAxisAlignment: MainAxisAlignment.center,
+      color: Colors.white.withOpacity(0.1),
+      child: Row(
         children: [
-          SectionButton(
-            buttonText: 'Home',
+          SizedBox(
+            width: MediaQuery.of(context).size.width * 0.05,
           ),
-          SectionButton(
-            buttonText: 'Über uns',
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(
+                CupertinoIcons.scissors,
+                size: 40,
+                color: main.primaryColor,
+              ),
+              Text(
+                'Luxus Styling Salon',
+                style: TextStyle(color: main.primaryColor),
+              )
+            ],
           ),
-          SectionButton(
-            buttonText: 'Dientleistungen',
+          SizedBox(
+            width: MediaQuery.of(context).size.width * 0.15,
           ),
-          SectionButton(
-            buttonText: 'Rezensionen',
+          const Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SectionButton(
+                buttonText: 'Home',
+              ),
+              SectionButton(
+                buttonText: 'Über uns',
+              ),
+              SectionButton(
+                buttonText: 'Dientleistungen',
+              ),
+              SectionButton(
+                buttonText: 'Rezensionen',
+              ),
+              SectionButton(
+                buttonText: 'Kontakt',
+              ),
+            ],
           ),
-          SectionButton(
-            buttonText: 'Kontakt',
+          SizedBox(
+            width: MediaQuery.of(context).size.width * 0.15,
           ),
+          Row(
+            children: [
+              Icon(
+                Icons.facebook,
+                color: main.primaryColor,
+              ),
+            ],
+          )
         ],
       ),
     );

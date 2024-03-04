@@ -5,11 +5,29 @@ import 'package:luxus_styling_salon/2_About.dart';
 import 'package:luxus_styling_salon/4_Testimonials.dart';
 import 'package:luxus_styling_salon/3_Services.dart';
 import 'package:luxus_styling_salon/5_Contact.dart';
-import 'package:luxus_styling_salon/6_Footer.dart';
+import 'package:luxus_styling_salon/7_Footer.dart';
 
 Color primaryColor = const Color.fromARGB(255, 209, 152, 38);
 Color greyZero = const Color.fromARGB(255, 25, 25, 25);
 Color greyOne = const Color.fromARGB(255, 41, 41, 41);
+SizedBox horizontalSpacingSmall(context) => SizedBox(
+      width: MediaQuery.of(context).size.width * 0.01,
+    );
+SizedBox horizontalSpacingMedium(context) => SizedBox(
+      width: MediaQuery.of(context).size.width * 0.02,
+    );
+SizedBox horizontalSpacingLarge(context) => SizedBox(
+      width: MediaQuery.of(context).size.width * 0.05,
+    );
+SizedBox verticalSpacingSmall(context) => SizedBox(
+      height: MediaQuery.of(context).size.height * 0.01,
+    );
+SizedBox verticalSpacingMedium(context) => SizedBox(
+      height: MediaQuery.of(context).size.height * 0.02,
+    );
+SizedBox verticalSpacingLarge(context) => SizedBox(
+      height: MediaQuery.of(context).size.height * 0.05,
+    );
 
 void main() => runApp(Main());
 

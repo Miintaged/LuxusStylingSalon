@@ -178,7 +178,7 @@ class ServiceRow extends StatelessWidget {
           service,
           style: const TextStyle(color: Colors.white),
         ),
-        Spacer(),
+        const Spacer(),
         Container(
           height: 1,
           width: MediaQuery.of(context).size.width * 0.05,

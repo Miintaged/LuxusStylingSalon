@@ -15,7 +15,7 @@ class _FooterState extends State<Footer> {
       height: MediaQuery.of(context).size.height * 0.1,
       width: MediaQuery.of(context).size.width,
       decoration: BoxDecoration(
-        color: main.greyZero,
+        color: main.greyOne,
       ),
       child: const Center(
         child: Text('Footer'),
