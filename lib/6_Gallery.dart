@@ -1,38 +1,18 @@
 import 'dart:ui';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:flutter/material.dart';
+import 'package:luxus_styling_salon/main.dart' as main;
 
 class Gallery extends StatelessWidget {
-  Gallery({super.key});
+  const Gallery({super.key});
 
-  final List<List<List<dynamic>>> images = [
-    [
-      [0, ''],
-      [1, ''],
-      [2, ''],
-    ],
-    [
-      [
-        0,
-        'https://www.positive.news/wp-content/uploads/2023/01/iStock-1441549388-min-1800x0-c-center.jpg'
-      ],
-      [
-        1,
-        'https://www.professionalbarber.shop/wp-content/uploads/2023/08/shutterstock_608094002-1.png'
-      ],
-      [
-        2,
-        'https://images.pexels.com/photos/2076930/pexels-photo-2076930.jpeg?cs=srgb&dl=pexels-thgusstavo-santana-2076930.jpg&fm=jpg'
-      ],
-    ],
-  ];
-  Widget image(String url, String title, BuildContext context) => Padding(
+  Widget image(String src, String title, BuildContext context) => Padding(
         padding: const EdgeInsets.all(8.0),
         child: ClipRRect(
           borderRadius: BorderRadius.circular(2.5),
           child: Stack(
             children: [
-              Center(
+              /* Center(
                 child: ImageFiltered(
                   imageFilter: ImageFilter.blur(
                     sigmaX: 10,
@@ -40,21 +20,36 @@ class Gallery extends StatelessWidget {
                   ),
                   child: Transform.scale(
                     scale: 3,
-                    child: Image.network(url),
+                    child: Image.asset(src),
                   ),
                 ),
+              ), */
+              Center(
+                child: Transform.scale(
+                  scale: 1.3,
+                  child: Image.asset(src),
+                ),
               ),
-              Center(child: Image.network(url)),
-              Container(
+              /* Container(
                 alignment: Alignment.bottomRight,
-                child: Text(
-                  title,
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: MediaQuery.of(context).size.width * .02,
+                child: Container(
+                  alignment: Alignment.center,
+                  height: MediaQuery.of(context).size.width * .03,
+                  width: double.infinity,
+                  child: Stack(
+                    children: [
+                      Container(color: main.primaryColor.withOpacity(.4)),
+                      Text(
+                        title,
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: MediaQuery.of(context).size.width * .02,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
-              ),
+              ), */
             ],
           ),
         ),
@@ -66,11 +61,8 @@ class Gallery extends StatelessWidget {
     double width = MediaQuery.of(context).size.width;
     return LayoutBuilder(
       builder: (context, constraints) {
-        /* if (constraints.maxWidth <= 800) {
-          return Text('mobile');
-        } */
         return SizedBox(
-          height: constraints.maxWidth <= 800 ? height * .525 : width * .7,
+          height: constraints.maxWidth <= 800 ? height * .525 : width * .75,
           width: width,
           child: Container(
             padding: EdgeInsets.symmetric(
@@ -87,6 +79,7 @@ class Gallery extends StatelessWidget {
                     color: Colors.white,
                   ),
                 ),
+                main.verticalSpacingLarge(context),
                 StaggeredGrid.count(
                   crossAxisCount: 4,
                   mainAxisSpacing: 2,
@@ -96,7 +89,7 @@ class Gallery extends StatelessWidget {
                       crossAxisCellCount: 2,
                       mainAxisCellCount: 2,
                       child: image(
-                        'https://www.positive.news/wp-content/uploads/2023/01/iStock-1441549388-min-1800x0-c-center.jpg',
+                        'assets/img/gallery_1.jpg',
                         'taper fade',
                         context,
                       ),
@@ -105,7 +98,7 @@ class Gallery extends StatelessWidget {
                       crossAxisCellCount: 2,
                       mainAxisCellCount: 1,
                       child: image(
-                        'https://modernbarber.co.uk/wp-content/uploads/2020/02/braid-american-crew-shave-launch-copy-4-scaled-e1582112562687.jpg.webp',
+                        'assets/img/gallery_3.jpg',
                         'taper fade',
                         context,
                       ),
@@ -114,7 +107,7 @@ class Gallery extends StatelessWidget {
                       crossAxisCellCount: 1,
                       mainAxisCellCount: 1,
                       child: image(
-                        'https://images.pexels.com/photos/2076930/pexels-photo-2076930.jpeg?cs=srgb&dl=pexels-thgusstavo-santana-2076930.jpg&fm=jpg',
+                        'assets/img/gallery_4.jpg',
                         'taper fade',
                         context,
                       ),
@@ -123,7 +116,7 @@ class Gallery extends StatelessWidget {
                       crossAxisCellCount: 1,
                       mainAxisCellCount: 1,
                       child: image(
-                        'https://www.professionalbarber.shop/wp-content/uploads/2023/08/shutterstock_608094002-1.png',
+                        'assets/img/gallery_2.jpg',
                         'taper fade',
                         context,
                       ),
@@ -138,24 +131,3 @@ class Gallery extends StatelessWidget {
     );
   }
 }
-
-/* ListView(
-              physics: const BouncingScrollPhysics(),
-              children: [
-                ...images.map(
-                  (r) => Row(
-                    children: r
-                        .map(
-                          (e) => Expanded(
-                            flex: Random().nextInt(3) * (e[0] as int),
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: 
-                            ),
-                          ),
-                        )
-                        .toList(),
-                  ),
-                ),
-              ],
-            ), */

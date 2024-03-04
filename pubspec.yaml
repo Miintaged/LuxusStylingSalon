@@ -21,7 +21,12 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - assets/about.png
+    - assets/img/landingpage.jpeg
+    - assets/img/client.jpeg
+    - assets/img/contact.jpeg
+    - assets/img/gallery_2.jpg
+    - assets/img/gallery_3.jpg
+    - assets/img/gallery_4.jpg
     - assets/map_desktop.jpg
     - assets/map_mobile.jpg
     - assets/icons/tiktok.svg

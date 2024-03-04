@@ -62,7 +62,7 @@ class _LandingState extends State<Landing> {
                       color: Colors.white,
                       fontSize: constraints.maxWidth <= 800
                           ? width * .045
-                          : MediaQuery.of(context).size.width * 0.02,
+                          : width * 0.018,
                       fontWeight:
                           constraints.maxWidth <= 800 ? null : FontWeight.w100,
                     ),
@@ -150,8 +150,8 @@ class _LandingState extends State<Landing> {
                     padding: EdgeInsets.only(
                       top: MediaQuery.of(context).size.height * .09,
                     ),
-                    child: Image.network(
-                      'https://images.pexels.com/photos/2068672/pexels-photo-2068672.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+                    child: Image.asset(
+                      'assets/img/landingpage.jpeg',
                       width: MediaQuery.of(context).size.width * .4,
                     ),
                   ),

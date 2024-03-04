@@ -40,7 +40,7 @@ class Main extends StatelessWidget {
     const About(),
     const Services(),
     const Testimoials(),
-    Gallery(),
+    const Gallery(),
     const Contact(),
     const Footer()
   ];

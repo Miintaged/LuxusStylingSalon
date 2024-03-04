@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:luxus_styling_salon/main.dart' as main;
 
@@ -30,7 +29,7 @@ class _TestimoialsState extends State<Testimoials> {
                       border: Border.all(width: 1, color: main.primaryColor),
                     ),
                     child: Image.network(
-                      'https://images.pexels.com/photos/3993472/pexels-photo-3993472.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+                      'assets/img/client.jpeg',
                       height: MediaQuery.of(context).size.height * .5,
                     ),
                   ),
@@ -65,12 +64,21 @@ class _TestimoialsState extends State<Testimoials> {
                       width: MediaQuery.of(context).size.width *
                           (constraints.maxWidth <= 800 ? .8 : .4),
                       child: Text(
-                        'I was very happy because I chose my hairstyle here. The barber is very friendly, gives excellent treatment and has great techniques to choose a suitable hairstyle for your hair. I advise everyone in the town or tourists to choose a new haircut here.\n- Laura Müller',
+                        'I was very happy because I chose my hairstyle here. The barber is very friendly, gives excellent treatment and has great techniques to choose a suitable hairstyle for your hair. I advise everyone in the town or tourists to choose a new haircut here.',
                         style: TextStyle(
                           color: const Color.fromARGB(255, 179, 179, 179),
                           fontSize: MediaQuery.of(context).size.width *
-                              (constraints.maxWidth <= 800 ? .04 : .0125),
+                              (constraints.maxWidth <= 800 ? .04 : .015),
                         ),
+                      ),
+                    ),
+                    main.verticalSpacingMedium(context),
+                    Text(
+                      '- Laura Müller',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: MediaQuery.of(context).size.width *
+                            (constraints.maxWidth <= 800 ? .04 : .015),
                       ),
                     ),
                   ],

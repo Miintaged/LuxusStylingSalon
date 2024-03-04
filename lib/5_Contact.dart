@@ -221,8 +221,8 @@ class _ContactState extends State<Contact> {
               width: width * .75,
               child: Row(
                 children: [
-                  Image.asset(
-                    'assets/about.png',
+                  Image.network(
+                    'assets/img/contact.jpeg',
                     height: width * .5,
                     // width: width * .3,
                   ),
