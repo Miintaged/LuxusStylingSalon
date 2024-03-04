@@ -5,6 +5,7 @@ import 'package:luxus_styling_salon/2_About.dart';
 import 'package:luxus_styling_salon/4_Testimonials.dart';
 import 'package:luxus_styling_salon/3_Services.dart';
 import 'package:luxus_styling_salon/5_Contact.dart';
+import 'package:luxus_styling_salon/6_Gallery.dart';
 import 'package:luxus_styling_salon/7_Footer.dart';
 
 Color primaryColor = const Color.fromARGB(255, 209, 152, 38);
@@ -39,6 +40,7 @@ class Main extends StatelessWidget {
     const About(),
     const Services(),
     const Testimoials(),
+    Gallery(),
     const Contact(),
     const Footer()
   ];
@@ -57,6 +59,7 @@ class Main extends StatelessWidget {
           child: Stack(
             children: [
               ListView.builder(
+                physics: const BouncingScrollPhysics(),
                 itemCount: sections.length,
                 itemBuilder: (context, index) {
                   return sections[index];
