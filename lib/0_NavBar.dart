@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:luxus_styling_salon/main.dart' as main;
 
 class Navbar extends StatefulWidget {
@@ -21,12 +22,10 @@ class _NavbarState extends State<Navbar> {
     return Container(
       height: MediaQuery.of(context).size.height * 0.09,
       width: MediaQuery.of(context).size.width,
+      padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width * 0.05),
       color: Colors.white.withOpacity(0.1),
       child: Row(
         children: [
-          SizedBox(
-            width: MediaQuery.of(context).size.width * 0.05,
-          ),
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -41,37 +40,51 @@ class _NavbarState extends State<Navbar> {
               )
             ],
           ),
-          SizedBox(
-            width: MediaQuery.of(context).size.width * 0.15,
-          ),
-          const Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+          main.horizontalSpacingLarge(context),
+          main.horizontalSpacingLarge(context),
+          main.horizontalSpacingLarge(context),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              SectionButton(
+              const SectionButton(
                 buttonText: 'Home',
               ),
-              SectionButton(
+              main.horizontalSpacingMedium(context),
+              const SectionButton(
                 buttonText: 'Über uns',
               ),
-              SectionButton(
+              main.horizontalSpacingMedium(context),
+              const SectionButton(
                 buttonText: 'Dientleistungen',
               ),
-              SectionButton(
+              main.horizontalSpacingMedium(context),
+              const SectionButton(
                 buttonText: 'Rezensionen',
               ),
-              SectionButton(
+              main.horizontalSpacingMedium(context),
+              const SectionButton(
                 buttonText: 'Kontakt',
               ),
             ],
           ),
-          SizedBox(
-            width: MediaQuery.of(context).size.width * 0.15,
-          ),
+          const Spacer(),
           Row(
             children: [
-              Icon(
-                Icons.facebook,
-                color: main.primaryColor,
+              GestureDetector(
+                onTap: () {},
+                child: Container(
+                  color: Colors.red,
+                    padding: const EdgeInsets.all(20),
+                    child: SvgPicture.asset(
+                        'LuxusStylingSalon/icons/instagram.svg')),
+              ),
+              GestureDetector(
+                onTap: () {},
+                child: Container(
+                  color: Colors.red,
+                    padding: const EdgeInsets.all(20),
+                    child:
+                        SvgPicture.asset('LuxusStylingSalon/icons/tiktok.svg')),
               ),
             ],
           )
