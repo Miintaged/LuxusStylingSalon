@@ -75,7 +75,8 @@ class Gallery extends StatelessWidget {
                   'GALLERIE',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    fontSize: width * .06,
+                    fontSize:
+                        constraints.maxWidth <= 800 ? width * .06 : width * .04,
                     color: Colors.white,
                   ),
                 ),
