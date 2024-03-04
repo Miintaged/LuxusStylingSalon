@@ -150,7 +150,7 @@ class _LandingState extends State<Landing> {
                     padding: EdgeInsets.only(
                       top: MediaQuery.of(context).size.height * .09,
                     ),
-                    child: Image.assets(
+                    child: Image.asset(
                       'assets/img/landingpage.jpeg',
                       width: MediaQuery.of(context).size.width * .4,
                     ),
