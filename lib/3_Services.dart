@@ -12,131 +12,154 @@ class Services extends StatefulWidget {
 class _ServicesState extends State<Services> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: MediaQuery.of(context).size.height * 0.6,
-      width: MediaQuery.of(context).size.width,
-      decoration: BoxDecoration(
-        color: main.greyZero,
+    List<Widget> widgets = [
+      Container(
+        padding: EdgeInsets.only(
+            left: MediaQuery.of(context).size.width * 0.02,
+            right: MediaQuery.of(context).size.width * 0.02),
+        width: MediaQuery.of(context).size.width *
+            (MediaQuery.of(context).size.width <= 800 ? .9 : 0.27),
+        height: MediaQuery.of(context).size.height * 0.5,
+        decoration: BoxDecoration(
+          color: main.greyOne,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.05,
+            ),
+            const IconRow(
+              icon: CupertinoIcons.scissors_alt,
+            ),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.05,
+            ),
+            const ServiceRow(
+              service: 'Kinderhaarschitt',
+              price: 10,
+            ),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.02,
+            ),
+            const ServiceRow(
+              service: 'Herrenschnitt',
+              price: 10,
+            ),
+          ],
+        ),
       ),
-      child: Row(
-        children: [
-          SizedBox(
-            width: MediaQuery.of(context).size.width * 0.05,
-          ),
-          Container(
-            padding: EdgeInsets.only(
-                left: MediaQuery.of(context).size.width * 0.02,
-                right: MediaQuery.of(context).size.width * 0.02),
-            width: MediaQuery.of(context).size.width * 0.27,
-            height: MediaQuery.of(context).size.height * 0.5,
-            decoration: BoxDecoration(
-              color: main.greyOne,
+      main.verticalSpacingMedium(context),
+      Container(
+        padding: EdgeInsets.only(
+            left: MediaQuery.of(context).size.width * 0.02,
+            right: MediaQuery.of(context).size.width * 0.02),
+        width: MediaQuery.of(context).size.width *
+            (MediaQuery.of(context).size.width <= 800 ? .9 : 0.27),
+        height: MediaQuery.of(context).size.height * 0.5,
+        decoration: BoxDecoration(
+          color: main.greyOne,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.05,
             ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.05,
-                ),
-                const IconRow(icon: CupertinoIcons.scissors_alt,),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.05,
-                ),
-                const ServiceRow(
-                  service: 'Kinderhaarschitt',
-                  price: 10,
-                ),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.02,
-                ),
-                const ServiceRow(
-                  service: 'Herrenschnitt',
-                  price: 10,
-                ),
-              ],
+            const IconRow(
+              icon: CupertinoIcons.paintbrush,
             ),
-          ),
-          SizedBox(width: MediaQuery.of(context).size.width * 0.05,),
-          Container(
-            padding: EdgeInsets.only(
-                left: MediaQuery.of(context).size.width * 0.02,
-                right: MediaQuery.of(context).size.width * 0.02),
-            width: MediaQuery.of(context).size.width * 0.27,
-            height: MediaQuery.of(context).size.height * 0.5,
-            decoration: BoxDecoration(
-              color: main.greyOne,
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.05,
             ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.05,
-                ),
-                const IconRow(icon: CupertinoIcons.paintbrush,),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.05,
-                ),
-                const ServiceRow(
-                  service: 'Haartönung',
-                  price: 10,
-                ),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.02,
-                ),
-                const ServiceRow(
-                  service: 'Haarfärbung',
-                  price: 10,
-                ),
-              ],
+            const ServiceRow(
+              service: 'Haartönung',
+              price: 10,
             ),
-          ),
-          SizedBox(width: MediaQuery.of(context).size.width * 0.05,),
-          Container(
-            padding: EdgeInsets.only(
-                left: MediaQuery.of(context).size.width * 0.02,
-                right: MediaQuery.of(context).size.width * 0.02),
-            width: MediaQuery.of(context).size.width * 0.27,
-            height: MediaQuery.of(context).size.height * 0.5,
-            decoration: BoxDecoration(
-              color: main.greyOne,
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.02,
             ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.05,
-                ),
-                const IconRow(icon: CupertinoIcons.alt,),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.05,
-                ),
-                const ServiceRow(
-                  service: 'Haartönung',
-                  price: 10,
-                ),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.02,
-                ),
-                const ServiceRow(
-                  service: 'Haarfärbung',
-                  price: 10,
-                ),
-              ],
+            const ServiceRow(
+              service: 'Haarfärbung',
+              price: 10,
             ),
-          ),
-        ],
+          ],
+        ),
       ),
-    );
+      main.verticalSpacingMedium(context),
+      Container(
+        padding: EdgeInsets.only(
+            left: MediaQuery.of(context).size.width * 0.02,
+            right: MediaQuery.of(context).size.width * 0.02),
+        width: MediaQuery.of(context).size.width *
+            (MediaQuery.of(context).size.width <= 800 ? .9 : 0.27),
+        height: MediaQuery.of(context).size.height * 0.5,
+        decoration: BoxDecoration(
+          color: main.greyOne,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.05,
+            ),
+            const IconRow(
+              icon: CupertinoIcons.alt,
+            ),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.05,
+            ),
+            const ServiceRow(
+              service: 'Haartönung',
+              price: 10,
+            ),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.02,
+            ),
+            const ServiceRow(
+              service: 'Haarfärbung',
+              price: 10,
+            ),
+          ],
+        ),
+      ),
+    ];
+
+    return SizedBox(
+        height: MediaQuery.of(context).size.width <= 800
+            ? null
+            : MediaQuery.of(context).size.height * 0.8,
+        width: MediaQuery.of(context).size.width,
+        child: Column(
+          children: [
+            Text(
+              'Services',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: MediaQuery.of(context).size.width <= 800
+                    ? MediaQuery.of(context).size.width * .06
+                    : MediaQuery.of(context).size.width * .04,
+                color: Colors.white,
+              ),
+            ),
+            main.verticalSpacingMedium(context),
+            MediaQuery.of(context).size.width <= 800
+                ? Column(
+                    children: widgets,
+                  )
+                : Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: widgets,
+                  ),
+          ],
+        ));
   }
 }
 
 class IconRow extends StatelessWidget {
   final IconData icon;
 
-  const IconRow({
-    super.key,
-    required this.icon
-  });
+  const IconRow({super.key, required this.icon});
 
   @override
   Widget build(BuildContext context) {
