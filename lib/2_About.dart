@@ -112,7 +112,9 @@ class _AboutState extends State<About> {
             main.verticalSpacingSmall(context),
             SizedBox(
               // height: MediaQuery.of(context).size.height * 0.16,
-              width: double.infinity,
+              width: MediaQuery.of(context).size.width <= 800
+                  ? double.infinity
+                  : MediaQuery.of(context).size.width * .21,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: weekdays
