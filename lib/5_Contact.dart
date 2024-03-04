@@ -215,158 +215,163 @@ class _ContactState extends State<Contact> {
           );
         }
         return SizedBox(
-          height: height * .7,
+          height: width * .7,
           width: width,
-          child: Container(
-            color: main.greyOne,
-            margin: EdgeInsets.symmetric(
-              horizontal: width * .25,
-              vertical: height * .08,
-            ),
-            child: Row(
-              children: [
-                Image.asset(
-                  'assets/about.png',
-                ),
-                Container(
-                  padding: EdgeInsets.only(left: width * .03),
-                  margin: EdgeInsets.only(top: height * .025),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'BUCHE EINEN TERMIN',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: width * .02,
-                          color: Colors.white,
-                        ),
-                      ),
-                      Text(
-                        'Fülle das Formular aus und erhalte einen Termin',
-                        style: TextStyle(
-                          fontSize: width * .0075,
-                          color: Colors.white.withOpacity(.8),
-                        ),
-                      ),
-                      SizedBox(height: width * .02),
-                      // INPUTS
-                      inputWrapper(
-                        context: context,
-                        onTap: () async {
-                          selectedDate = await showDatePicker(
-                            context: context,
-                            firstDate: DateTime.now(),
-                            lastDate:
-                                DateTime.now().add(const Duration(days: 30)),
-                          );
-                          setState(() {});
-                        },
-                        child: Row(
-                          children: [
-                            Icon(
-                              Icons.calendar_month,
-                              color: Colors.white.withOpacity(.5),
-                            ),
-                            SizedBox(width: width * .025),
-                            Text(
-                              selectedDate == null
-                                  ? 'Datum'
-                                  : '${zero(selectedDate!.day)}.${zero(selectedDate!.month)}',
-                              style: TextStyle(
-                                color: Colors.white.withOpacity(.5),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      inputWrapper(
-                        context: context,
-                        onTap: () async {
-                          selectedTime = await showTimePicker(
-                              context: context, initialTime: TimeOfDay.now());
-                          setState(() {});
-                        },
-                        child: Row(
-                          children: [
-                            Icon(
-                              Icons.access_time_sharp,
-                              color: Colors.white.withOpacity(.5),
-                            ),
-                            SizedBox(width: width * .025),
-                            Text(
-                              selectedTime == null
-                                  ? 'Zeit'
-                                  : '${zero(selectedTime!.hour)}:${zero(selectedTime!.minute)}',
-                              style: TextStyle(
-                                color: Colors.white.withOpacity(.5),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      inputWrapper(
-                        context: context,
-                        onTap: () {},
-                        child: Row(
-                          children: [
-                            Icon(
-                              Icons.cut,
-                              color: Colors.white.withOpacity(.5),
-                            ),
-                            SizedBox(width: width * .02),
-                            Text(
-                              'Haarschnitt',
-                              style: TextStyle(
-                                color: Colors.white.withOpacity(.5),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      inputWrapper(
-                        context: context,
-                        onTap: () {},
-                        child: Row(
-                          children: [
-                            Icon(
-                              Icons.phone,
-                              color: Colors.white.withOpacity(.5),
-                            ),
-                            SizedBox(width: width * .02),
-                            Text(
-                              'Handynummer',
-                              style: TextStyle(
-                                color: Colors.white.withOpacity(.5),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Container(
-                        alignment: Alignment.center,
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 15,
-                          vertical: 10,
-                        ),
-                        margin: const EdgeInsets.only(top: 20),
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                            color: main.primaryColor,
-                            width: 1,
+          child: Center(
+            child: Container(
+              color: main.greyOne,
+              height: width * .5,
+              width: width * .75,
+              child: Row(
+                children: [
+                  Image.asset(
+                    'assets/about.png',
+                    height: width * .5,
+                    // width: width * .3,
+                  ),
+                  Container(
+                    alignment: Alignment.center,
+                    padding: EdgeInsets.only(left: width * .03),
+                    margin: EdgeInsets.only(top: height * .025),
+                    width: width * .37,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          'BUCHE EINEN TERMIN',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: width * .025,
+                            color: Colors.white,
                           ),
                         ),
-                        width: MediaQuery.of(context).size.width <= 800
-                            ? MediaQuery.of(context).size.width * .9
-                            : MediaQuery.of(context).size.width * .2,
-                        child: const Text(
-                          'Jetzt Buchen',
+                        Text(
+                          'Fülle das Formular aus und erhalte einen Termin',
+                          style: TextStyle(
+                            fontSize: width * .0075,
+                            color: Colors.white.withOpacity(.8),
+                          ),
                         ),
-                      ),
-                    ],
+                        SizedBox(height: width * .02),
+                        // INPUTS
+                        inputWrapper(
+                          context: context,
+                          onTap: () async {
+                            selectedDate = await showDatePicker(
+                              context: context,
+                              firstDate: DateTime.now(),
+                              lastDate:
+                                  DateTime.now().add(const Duration(days: 30)),
+                            );
+                            setState(() {});
+                          },
+                          child: Row(
+                            children: [
+                              Icon(
+                                Icons.calendar_month,
+                                color: Colors.white.withOpacity(.5),
+                              ),
+                              SizedBox(width: width * .025),
+                              Text(
+                                selectedDate == null
+                                    ? 'Datum'
+                                    : '${zero(selectedDate!.day)}.${zero(selectedDate!.month)}',
+                                style: TextStyle(
+                                  color: Colors.white.withOpacity(.5),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        inputWrapper(
+                          context: context,
+                          onTap: () async {
+                            selectedTime = await showTimePicker(
+                                context: context, initialTime: TimeOfDay.now());
+                            setState(() {});
+                          },
+                          child: Row(
+                            children: [
+                              Icon(
+                                Icons.access_time_sharp,
+                                color: Colors.white.withOpacity(.5),
+                              ),
+                              SizedBox(width: width * .025),
+                              Text(
+                                selectedTime == null
+                                    ? 'Zeit'
+                                    : '${zero(selectedTime!.hour)}:${zero(selectedTime!.minute)}',
+                                style: TextStyle(
+                                  color: Colors.white.withOpacity(.5),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        inputWrapper(
+                          context: context,
+                          onTap: () {},
+                          child: Row(
+                            children: [
+                              Icon(
+                                Icons.cut,
+                                color: Colors.white.withOpacity(.5),
+                              ),
+                              SizedBox(width: width * .02),
+                              Text(
+                                'Haarschnitt',
+                                style: TextStyle(
+                                  color: Colors.white.withOpacity(.5),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        inputWrapper(
+                          context: context,
+                          onTap: () {},
+                          child: Row(
+                            children: [
+                              Icon(
+                                Icons.phone,
+                                color: Colors.white.withOpacity(.5),
+                              ),
+                              SizedBox(width: width * .02),
+                              Text(
+                                'Handynummer',
+                                style: TextStyle(
+                                  color: Colors.white.withOpacity(.5),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Container(
+                          alignment: Alignment.center,
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 15,
+                            vertical: 10,
+                          ),
+                          margin: const EdgeInsets.only(top: 20),
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                              color: main.primaryColor,
+                              width: 1,
+                            ),
+                          ),
+                          width: MediaQuery.of(context).size.width <= 800
+                              ? MediaQuery.of(context).size.width * .9
+                              : MediaQuery.of(context).size.width * .2,
+                          child: const Text(
+                            'Jetzt Buchen',
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         );
