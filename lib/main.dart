@@ -45,18 +45,22 @@ class Main extends StatelessWidget {
     'Kontakt'
   ];
 
-  final List<Widget> sections = [
-    const Landing(),
-    const About(),
-    const Services(),
-    const Testimoials(),
-    const Gallery(),
-    const Contact(),
-    const Footer()
-  ];
-
   @override
   Widget build(BuildContext context) {
+    final List<Widget> sections = [
+      const Landing(),
+      verticalSpacingMedium(context),
+      const About(),
+      verticalSpacingMedium(context),
+      const Services(),
+      verticalSpacingSmall(context),
+      const Testimoials(),
+      verticalSpacingMedium(context),
+      const Gallery(),
+      const Contact(),
+      const Footer()
+    ];
+
     return MaterialApp(
       title: 'Luxus Styling Salon',
       theme: ThemeData(

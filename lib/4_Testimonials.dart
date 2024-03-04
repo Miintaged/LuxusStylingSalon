@@ -16,7 +16,9 @@ class _TestimoialsState extends State<Testimoials> {
         padding: EdgeInsets.symmetric(
           horizontal: MediaQuery.of(context).size.width * 0.045,
         ),
-        height: MediaQuery.of(context).size.height * 0.7,
+        height: constraints.maxWidth <= 800
+            ? null
+            : MediaQuery.of(context).size.height * 0.7,
         width: MediaQuery.of(context).size.width,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
