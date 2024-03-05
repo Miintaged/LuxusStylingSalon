@@ -74,7 +74,7 @@ class _ContactState extends State<Contact> {
     double width = MediaQuery.of(context).size.width;
 
     return Padding(
-      padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.09),
+      padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.04),
       child: LayoutBuilder(
         builder: (context, constraints) {
           if (constraints.maxWidth <= 800) {
@@ -225,7 +225,8 @@ class _ContactState extends State<Contact> {
               width: width,
               alignment: Alignment.center,
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   main.isMobile(context)
                       ? SizedBox()
@@ -394,6 +395,7 @@ class _ContactState extends State<Contact> {
                       ],
                     ),
                   ),
+                  main.verticalSpacingSmall(context),
                 ],
               ),
             ),

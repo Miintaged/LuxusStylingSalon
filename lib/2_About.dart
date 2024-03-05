@@ -166,36 +166,41 @@ class _AboutState extends State<About> {
       )
     ];
 
-    return LayoutBuilder(
-      builder: (context, constraints) => Container(
-        height: main.aboutHeight(context),
-        width: MediaQuery.of(context).size.width,
-        padding: EdgeInsets.all(MediaQuery.of(context).size.height * 0.05),
-        child: Column(
-          children: [
-            main.verticalSpacingLarge(context),
-            main.verticalSpacingLarge(context),
-            Text(
-              'ÜBER UNS',
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: constraints.maxWidth <= 800
-                    ? MediaQuery.of(context).size.width * .06
-                    : MediaQuery.of(context).size.width * .04,
-                color: Colors.white,
-              ),
-            ),
-            main.verticalSpacingLarge(context),
-            main.verticalSpacingLarge(context),
-            constraints.maxWidth <= 800
-                ? Column(
-                    children: widgets,
-                  )
-                : Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: widgets,
+    return Padding(
+      padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.09),
+      child: Center(
+        child: LayoutBuilder(
+          builder: (context, constraints) => Container(
+            height: main.aboutHeight(context),
+            width: MediaQuery.of(context).size.width,
+            padding: EdgeInsets.all(MediaQuery.of(context).size.height * 0.05),
+            child: Column(
+              children: [
+                main.verticalSpacingLarge(context),
+                main.verticalSpacingLarge(context),
+                Text(
+                  'ÜBER UNS',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: constraints.maxWidth <= 800
+                        ? MediaQuery.of(context).size.width * .1
+                        : MediaQuery.of(context).size.width * .04,
+                    color: Colors.white,
                   ),
-          ],
+                ),
+                main.verticalSpacingLarge(context),
+                main.verticalSpacingLarge(context),
+                constraints.maxWidth <= 800
+                    ? Column(
+                        children: widgets,
+                      )
+                    : Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: widgets,
+                      ),
+              ],
+            ),
+          ),
         ),
       ),
     );

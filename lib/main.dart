@@ -69,7 +69,12 @@ double galleryHeight(context) => isMobile(context)
     : MediaQuery.of(context).size.height;
 double galleryStart(context) =>
     testimonialStart(context) +
-    testimonialHeight(context);
+    testimonialHeight(context) +
+    MediaQuery.of(context).size.height * .1;
+double galleryStartMobile(context) =>
+    serviceStart(context) +
+    serviceHeight(context) +
+    MediaQuery.of(context).size.height * 1.2;
 bool inGalleryRange(context, position) =>
     position > galleryStart(context) &&
     position < galleryStart(context) + galleryHeight(context);
@@ -78,7 +83,11 @@ double contactHeight(context) => MediaQuery.of(context).size.height;
 double contactStart(context) =>
     galleryStart(context) +
     galleryHeight(context) +
-    MediaQuery.of(context).size.height * .1;
+    MediaQuery.of(context).size.height * .175;
+double contactStartMobile(context) =>
+    galleryStartMobile(context) +
+    galleryHeight(context) +
+    MediaQuery.of(context).size.height * 0.25;
 bool inContactRange(context, position) =>
     position > contactStart(context) &&
     position < contactStart(context) + contactHeight(context);
@@ -96,19 +105,19 @@ class Main extends StatelessWidget {
         'Home',
       ],
       [
-        aboutHeight(context),
+        aboutStart(context),
         'Über uns',
       ],
       [
-        serviceHeight(context),
+        serviceStart(context),
         'Dienstleistungen',
       ],
       [
-        testimonialHeight(context),
-        'Rezension',
+        galleryStartMobile(context),
+        'Gallerie',
       ],
       [
-        contactHeight(context),
+        contactStartMobile(context),
         'Kontakt',
       ],
     ];
@@ -183,22 +192,28 @@ class Main extends StatelessWidget {
                     ),
                     verticalSpacingMedium(context),
                     ...sectionNames.map(
-                      (e) => GestureDetector(
-                        onTap: () => scrollController.animateTo(
-                          e[0],
-                          duration: const Duration(milliseconds: 300),
-                          curve: Curves.easeOut,
-                        ),
-                        child: Container(
-                          height: MediaQuery.of(context).size.height * 0.15,
-                          width: MediaQuery.of(context).size.width,
-                          alignment: Alignment.center,
-                          child: Text(
-                            e[1],
-                            style: TextStyle(fontSize: 20, color: primaryColor),
+                      (e) => Builder(builder: (context) {
+                        return GestureDetector(
+                          onTap: () {
+                            Scaffold.of(context).closeDrawer();
+                            scrollController.animateTo(
+                              e[0],
+                              duration: const Duration(milliseconds: 300),
+                              curve: Curves.easeOut,
+                            );
+                          },
+                          child: Container(
+                            height: MediaQuery.of(context).size.height * 0.1,
+                            width: MediaQuery.of(context).size.width,
+                            alignment: Alignment.center,
+                            child: Text(
+                              e[1],
+                              style:
+                                  TextStyle(fontSize: 20, color: primaryColor),
+                            ),
                           ),
-                        ),
-                      ),
+                        );
+                      }),
                     ),
                   ],
                 ),
