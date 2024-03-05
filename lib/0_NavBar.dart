@@ -127,6 +127,7 @@ class DesktopNavBar extends StatelessWidget {
       padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.05),
       color: Colors.white.withOpacity(0.1),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -141,9 +142,6 @@ class DesktopNavBar extends StatelessWidget {
                 style: TextStyle(color: main.primaryColor),
               )
             ],
-          ),
-          SizedBox(
-            width: MediaQuery.of(context).size.width * 0.05,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -203,9 +201,7 @@ class DesktopNavBar extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(
-            width: MediaQuery.of(context).size.width * 0.05,
-          ),
+          SizedBox(width: MediaQuery.of(context).size.width * 0.03,),
           Row(
             children: [
               GestureDetector(
@@ -234,6 +230,7 @@ class DesktopNavBar extends StatelessWidget {
               ),
             ],
           ),
+          SizedBox()
         ],
       ),
     );

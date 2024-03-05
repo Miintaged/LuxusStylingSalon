@@ -65,7 +65,7 @@ class _ServicesState extends State<Services> {
                 'In unserem Salon genießen Sie nicht nur eine professionelle Rasur, sondern auch eine entspannende und angenehme Atmosphäre. Lehnen Sie sich zurück, lassen Sie sich verwöhnen und genießen Sie eine Auszeit vom Alltag, während wir uns um Ihr Aussehen kümmern.',
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  fontSize: main.isMobile(context) ? MediaQuery.of(context).size.height * 0.02 : MediaQuery.of(context).size.height * 0.011,
+                  fontSize: main.isMobile(context) ? MediaQuery.of(context).size.height * 0.018 : MediaQuery.of(context).size.height * 0.01,
                   color: const Color.fromARGB(255, 172, 172, 172),
                   fontWeight: FontWeight.w100,
                 ),
@@ -114,6 +114,7 @@ class _ServicesState extends State<Services> {
               color: Colors.white,
             ),
           ),
+          main.verticalSpacingLarge(context),
           main.verticalSpacingLarge(context),
           MediaQuery.of(context).size.width <= 800
               ? Column(
@@ -202,7 +203,7 @@ class ServiceWidget extends StatelessWidget {
               serviceBody,
               textAlign: TextAlign.center,
               style: TextStyle(
-                fontSize: main.isMobile(context) ? MediaQuery.of(context).size.height * 0.0225 : MediaQuery.of(context).size.height * 0.0125,
+                fontSize: main.isMobile(context) ? MediaQuery.of(context).size.height * 0.02 : MediaQuery.of(context).size.height * 0.011,
                 color: const Color.fromARGB(255, 172, 172, 172),
                 fontWeight: FontWeight.w100,
               ),

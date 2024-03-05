@@ -186,6 +186,7 @@ class _AboutState extends State<About> {
               ),
             ),
             main.verticalSpacingLarge(context),
+            main.verticalSpacingLarge(context),
             constraints.maxWidth <= 800
                 ? Column(
                     children: widgets,

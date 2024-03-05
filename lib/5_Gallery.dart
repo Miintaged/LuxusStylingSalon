@@ -62,13 +62,13 @@ class Gallery extends StatelessWidget {
     return LayoutBuilder(
       builder: (context, constraints) {
         return SizedBox(
-          height: constraints.maxWidth <= 800 ? height * .525 : width * .75,
+          height: main.galleryHeight(context),
           width: width,
           child: Container(
             padding: EdgeInsets.symmetric(
               horizontal: width * .05,
-              vertical: height * .1,
             ),
+            color: Colors.red,
             child: Column(
               children: [
                 main.verticalSpacingLarge(context),
@@ -82,49 +82,51 @@ class Gallery extends StatelessWidget {
                     color: Colors.white,
                   ),
                 ),
-                main.verticalSpacingLarge(context),
-                StaggeredGrid.count(
-                  crossAxisCount: 4,
-                  mainAxisSpacing: 2,
-                  crossAxisSpacing: 4,
-                  children: [
-                    StaggeredGridTile.count(
-                      crossAxisCellCount: 2,
-                      mainAxisCellCount: 2,
-                      child: image(
-                        'assets/img/gallery_1.jpg',
-                        'taper fade',
-                        context,
+                Transform.scale(
+                  scale: 0.95,
+                  child: StaggeredGrid.count(
+                    crossAxisCount: 4,
+                    mainAxisSpacing: 2,
+                    crossAxisSpacing: 4,
+                    children: [
+                      StaggeredGridTile.count(
+                        crossAxisCellCount: 2,
+                        mainAxisCellCount: 2,
+                        child: image(
+                          'assets/img/gallery_1.jpg',
+                          'taper fade',
+                          context,
+                        ),
                       ),
-                    ),
-                    StaggeredGridTile.count(
-                      crossAxisCellCount: 2,
-                      mainAxisCellCount: 1,
-                      child: image(
-                        'assets/img/gallery_3.jpg',
-                        'taper fade',
-                        context,
+                      StaggeredGridTile.count(
+                        crossAxisCellCount: 2,
+                        mainAxisCellCount: 1,
+                        child: image(
+                          'assets/img/gallery_3.jpg',
+                          'taper fade',
+                          context,
+                        ),
                       ),
-                    ),
-                    StaggeredGridTile.count(
-                      crossAxisCellCount: 1,
-                      mainAxisCellCount: 1,
-                      child: image(
-                        'assets/img/gallery_4.jpg',
-                        'taper fade',
-                        context,
+                      StaggeredGridTile.count(
+                        crossAxisCellCount: 1,
+                        mainAxisCellCount: 1,
+                        child: image(
+                          'assets/img/gallery_4.jpg',
+                          'taper fade',
+                          context,
+                        ),
                       ),
-                    ),
-                    StaggeredGridTile.count(
-                      crossAxisCellCount: 1,
-                      mainAxisCellCount: 1,
-                      child: image(
-                        'assets/img/gallery_2.jpg',
-                        'taper fade',
-                        context,
+                      StaggeredGridTile.count(
+                        crossAxisCellCount: 1,
+                        mainAxisCellCount: 1,
+                        child: image(
+                          'assets/img/gallery_2.jpg',
+                          'taper fade',
+                          context,
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ],
             ),
