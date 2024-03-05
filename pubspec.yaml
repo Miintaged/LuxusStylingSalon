@@ -24,8 +24,6 @@ flutter_launcher_icons:
   web:
     generate: true
     image_path: "assets/icons/favicon.png"
-    background_color: "#FFFFFF"
-    theme_color: "#FFFFFF"
 
 flutter:
   uses-material-design: true
