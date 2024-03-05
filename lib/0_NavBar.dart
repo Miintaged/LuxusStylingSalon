@@ -7,6 +7,18 @@ import 'package:url_launcher/url_launcher.dart';
 Uri instagram_url = Uri.parse('https://www.instagram.com/luxus_styling_salon/');
 Uri tiktok_url = Uri.parse('https://www.tiktok.com/@luxusstylingsalon');
 
+Future<void> _launchInstagram() async {
+    if (!await launchUrl(instagram_url)) {
+      throw Exception('Could not launch $instagram_url');
+    }
+  }
+
+  Future<void> _launchTiktok() async {
+    if (!await launchUrl(tiktok_url)) {
+      throw Exception('Could not launch $tiktok_url');
+    }
+  }
+
 class Navbar extends StatefulWidget {
   const Navbar({super.key});
 
@@ -48,18 +60,21 @@ class MobileNavBar extends StatelessWidget {
             focusColor: Colors.transparent,
             highlightColor: Colors.transparent,
             hoverColor: Colors.transparent,
-              onPressed: () {
-                Scaffold.of(context).openDrawer();
-              },
-              icon: const Icon(
-                Icons.menu,
-                size: 35,
-              )),
+            onPressed: () {
+              Scaffold.of(context).openDrawer();
+            },
+            icon: const Icon(
+              Icons.menu_rounded,
+              size: 35,
+            ),
+          ),
           const Spacer(),
           Row(
             children: [
               GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  _launchInstagram();
+                },
                 child: Container(
                   padding: const EdgeInsets.all(25),
                   child: SvgPicture.asset('assets/icons/instagram.svg',
@@ -67,7 +82,9 @@ class MobileNavBar extends StatelessWidget {
                 ),
               ),
               GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  _launchTiktok();
+                },
                 child: Container(
                   padding: const EdgeInsets.all(25),
                   child: SvgPicture.asset('assets/icons/tiktok.svg',
@@ -144,7 +161,9 @@ class DesktopNavBar extends StatelessWidget {
           Row(
             children: [
               GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  _launchInstagram();
+                },
                 child: Container(
                   padding: const EdgeInsets.all(25),
                   child: SvgPicture.asset('assets/icons/instagram.svg',
@@ -152,7 +171,9 @@ class DesktopNavBar extends StatelessWidget {
                 ),
               ),
               GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  _launchTiktok();
+                },
                 child: Container(
                   padding: const EdgeInsets.all(25),
                   child: SvgPicture.asset('assets/icons/tiktok.svg',
@@ -160,7 +181,7 @@ class DesktopNavBar extends StatelessWidget {
                 ),
               ),
             ],
-          )
+          ),
         ],
       ),
     );

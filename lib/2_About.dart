@@ -10,7 +10,7 @@ class About extends StatefulWidget {
 }
 
 class _AboutState extends State<About> {
-  List<String> adresse = ["Bürgerstraße 9,", "6020 Innsbruck"];
+  List<String> adresse = ["Bürgerstraße 9", "6020 Innsbruck"];
 
   final Uri url = Uri.parse(
       'https://www.google.com/maps/place/Luxus+Styling+Salon/@47.2643608,11.387711,16.28z/data=!4m6!3m5!1s0x479d6b544f7a061d:0xb0e7e9fc86aa0ca6!8m2!3d47.2648897!4d11.3904457!16s%2Fg%2F11scfq45cq?entry=ttu');
@@ -50,8 +50,8 @@ class _AboutState extends State<About> {
             clipBehavior: Clip.hardEdge,
             decoration: const BoxDecoration(),
             child: Transform.scale(
-              scale: 1.5,
-              child: MediaQuery.of(context).size.width <= 800
+              scale: 2,
+              child: (MediaQuery.of(context).size.width > 800 && MediaQuery.of(context).size.width <= 1200) || (MediaQuery.of(context).size.width < 600)
                   ? Image.asset('assets/map_mobile.jpg')
                   : Image.asset('assets/map_desktop.jpg'),
             ),
@@ -87,7 +87,7 @@ class _AboutState extends State<About> {
                   Icons.location_pin,
                   color: Color.fromARGB(255, 176, 176, 176),
                 ),
-                main.horizontalSpacingMedium(context),
+                main.horizontalSpacingSmall(context),
                 Text(
                   adresse[0],
                   style: const TextStyle(
@@ -110,47 +110,56 @@ class _AboutState extends State<About> {
                   fontSize: 30, color: Colors.white, letterSpacing: 2),
             ),
             main.verticalSpacingSmall(context),
-            SizedBox(
-              // height: MediaQuery.of(context).size.height * 0.16,
-              width: MediaQuery.of(context).size.width <= 800
-                  ? double.infinity
-                  : MediaQuery.of(context).size.width * .21,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: weekdays
-                    .map((e) => Row(
-                          children: [
-                            Expanded(
-                              flex: 1,
-                              child: Text(
-                                e[0],
-                                style: const TextStyle(
-                                    fontWeight: FontWeight.w200,
-                                    color: Color.fromARGB(255, 176, 176, 176)),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: weekdays
+                  .map((e) => Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Expanded(
+                            flex: 3,
+                            child: Container(
+                              padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * .01),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  Text(
+                                    e[0],
+                                    style: const TextStyle(
+                                        fontWeight: FontWeight.w200,
+                                        color: Color.fromARGB(255, 176, 176, 176)),
+                                  ),
+                                ],
                               ),
                             ),
-                            main.horizontalSpacingLarge(context),
-                            Expanded(
-                              flex: 1,
-                              child: Container(
-                                height: 1,
-                                color: main.primaryColor,
-                              ),
+                          ),
+                          main.horizontalSpacingLarge(context),
+                          Expanded(
+                            flex: 1,
+                            child: Container(
+                              height: 1,
+                              width: 10,
+                              color: main.primaryColor,
                             ),
-                            main.horizontalSpacingLarge(context),
-                            Expanded(
-                              flex: 1,
-                              child: Text(
-                                e[1],
-                                style: const TextStyle(
-                                    fontWeight: FontWeight.w200,
-                                    color: Color.fromARGB(255, 176, 176, 176)),
-                              ),
-                            )
-                          ],
-                        ))
-                    .toList(),
-              ),
+                          ),
+                          main.horizontalSpacingLarge(context),
+                          Expanded(
+                            flex: 3,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Text(
+                                  e[1],
+                                  style: const TextStyle(
+                                      fontWeight: FontWeight.w200,
+                                      color: Color.fromARGB(255, 176, 176, 176)),
+                                ),
+                              ],
+                            ),
+                          )
+                        ],
+                      ))
+                  .toList(),
             ),
           ],
         ),

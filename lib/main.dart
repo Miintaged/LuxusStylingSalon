@@ -49,15 +49,21 @@ class Main extends StatelessWidget {
   Widget build(BuildContext context) {
     final List<Widget> sections = [
       const Landing(),
-      verticalSpacingMedium(context),
+      verticalSpacingLarge(context),
+      verticalSpacingLarge(context),
       const About(),
-      verticalSpacingMedium(context),
+      verticalSpacingLarge(context),
+      verticalSpacingLarge(context),
       const Services(),
-      verticalSpacingSmall(context),
-      const Testimoials(),
-      verticalSpacingMedium(context),
+      verticalSpacingLarge(context),
+      verticalSpacingLarge(context),
+      isMobile(context) ? const SizedBox() : const Testimoials(),
       const Gallery(),
+      verticalSpacingLarge(context),
+      verticalSpacingLarge(context),
       const Contact(),
+      verticalSpacingLarge(context),
+      verticalSpacingLarge(context),
       const Footer()
     ];
 
@@ -106,26 +112,15 @@ class Main extends StatelessWidget {
                           ],
                         ),
                       ),
+                      verticalSpacingMedium(context),
                       ...sectionNames.map(
                         (e) => Container(
                           height: MediaQuery.of(context).size.height * 0.15,
                           width: MediaQuery.of(context).size.width,
                           alignment: Alignment.center,
-                          // padding: EdgeInsets.only(
-                          //     left: MediaQuery.of(context).size.width * 0.1),
-                          // decoration: BoxDecoration(
-                          //   border: Border(
-                          //       bottom: BorderSide(
-                          //           width: 0.2,
-                          //           color: Color.fromARGB(255, 160, 160, 160))),
-                          // ),
-                          child: Row(
-                            children: [
-                              Text(
-                                e,
-                                style: TextStyle(fontSize: 20, color: primaryColor),
-                              ),
-                            ],
+                          child: Text(
+                            e,
+                            style: TextStyle(fontSize: 20, color: primaryColor),
                           ),
                         ),
                       ),

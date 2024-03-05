@@ -18,75 +18,91 @@ class _TestimoialsState extends State<Testimoials> {
         ),
         height: constraints.maxWidth <= 800
             ? null
-            : MediaQuery.of(context).size.height * 0.7,
+            : MediaQuery.of(context).size.height * 0.8,
         width: MediaQuery.of(context).size.width,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+        child: Column(
           children: [
-            constraints.maxWidth <= 800
-                ? const SizedBox()
-                : Container(
-                    padding: const EdgeInsets.all(5),
-                    decoration: BoxDecoration(
-                      border: Border.all(width: 1, color: main.primaryColor),
-                    ),
-                    child: Image.network(
-                      'assets/img/client.jpeg',
-                      height: MediaQuery.of(context).size.height * .5,
-                    ),
-                  ),
-            SizedBox(
-              width: MediaQuery.of(context).size.width * 0.1,
+            Text(
+              'Rezensionen',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: MediaQuery.of(context).size.width <= 800
+                    ? MediaQuery.of(context).size.width * .06
+                    : MediaQuery.of(context).size.width * .04,
+                color: Colors.white,
+              ),
             ),
-            Stack(
-              clipBehavior: Clip.none,
+            SizedBox(height: MediaQuery.of(context).size.height * .1,),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                constraints.maxWidth <= 800
+                    ? const SizedBox()
+                    : Container(
+                        padding: const EdgeInsets.all(5),
+                        decoration: BoxDecoration(
+                          border:
+                              Border.all(width: 1, color: main.primaryColor),
+                        ),
+                        child: Image.network(
+                          'assets/img/client.jpeg',
+                          height: MediaQuery.of(context).size.height * .5,
+                        ),
+                      ),
+                SizedBox(
+                  width: MediaQuery.of(context).size.width * 0.1,
+                ),
+                Stack(
+                  clipBehavior: Clip.none,
                   children: [
-                    SizedBox(height: MediaQuery.of(context).size.height * 0.17),
-                    Row(
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              'Eine Kundin sagt',
+                              style: TextStyle(
+                                color: main.primaryColor,
+                                fontSize: MediaQuery.of(context).size.width *
+                                    (constraints.maxWidth <= 800 ? .08 : .035),
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: MediaQuery.of(context).size.height *
+                              (constraints.maxWidth <= 800 ? .02 : .04),
+                        ),
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width *
+                              (constraints.maxWidth <= 800 ? .8 : .4),
+                          child: Text(
+                            'I was very happy because I chose my hairstyle here. The barber is very friendly, gives excellent treatment and has great techniques to choose a suitable hairstyle for your hair. I advise everyone in the town or tourists to choose a new haircut here.',
+                            style: TextStyle(
+                              color: const Color.fromARGB(255, 179, 179, 179),
+                              fontSize: MediaQuery.of(context).size.width *
+                                  (constraints.maxWidth <= 800 ? .04 : .015),
+                            ),
+                          ),
+                        ),
+                        main.verticalSpacingMedium(context),
                         Text(
-                          'Eine Kundin sagt',
+                          '- Laura Müller',
                           style: TextStyle(
-                            color: main.primaryColor,
+                            color: Colors.white,
                             fontSize: MediaQuery.of(context).size.width *
-                                (constraints.maxWidth <= 800 ? .08 : .035),
+                                (constraints.maxWidth <= 800 ? .04 : .015),
                           ),
                         ),
                       ],
                     ),
-                    SizedBox(
-                      height: MediaQuery.of(context).size.height *
-                          (constraints.maxWidth <= 800 ? .02 : .04),
-                    ),
-                    SizedBox(
-                      width: MediaQuery.of(context).size.width *
-                          (constraints.maxWidth <= 800 ? .8 : .4),
-                      child: Text(
-                        'I was very happy because I chose my hairstyle here. The barber is very friendly, gives excellent treatment and has great techniques to choose a suitable hairstyle for your hair. I advise everyone in the town or tourists to choose a new haircut here.',
-                        style: TextStyle(
-                          color: const Color.fromARGB(255, 179, 179, 179),
-                          fontSize: MediaQuery.of(context).size.width *
-                              (constraints.maxWidth <= 800 ? .04 : .015),
-                        ),
-                      ),
-                    ),
-                    main.verticalSpacingMedium(context),
-                    Text(
-                      '- Laura Müller',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: MediaQuery.of(context).size.width *
-                            (constraints.maxWidth <= 800 ? .04 : .015),
-                      ),
-                    ),
                   ],
-                ),
+                )
               ],
-            )
+            ),
           ],
         ),
       ),
