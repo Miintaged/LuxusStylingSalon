@@ -125,8 +125,7 @@ class DesktopNavBar extends StatelessWidget {
     return Container(
       height: MediaQuery.of(context).size.height * 0.09,
       width: MediaQuery.of(context).size.width,
-      padding: EdgeInsets.symmetric(
-          horizontal: MediaQuery.of(context).size.width * 0.05),
+      padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.05),
       color: Colors.white.withOpacity(0.1),
       child: Row(
         children: [
@@ -145,7 +144,7 @@ class DesktopNavBar extends StatelessWidget {
             ],
           ),
           SizedBox(
-            width: MediaQuery.of(context).size.width * 0.15,
+            width: MediaQuery.of(context).size.width * 0.05,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -206,7 +205,7 @@ class DesktopNavBar extends StatelessWidget {
             ],
           ),
           SizedBox(
-            width: MediaQuery.of(context).size.width * 0.15,
+            width: MediaQuery.of(context).size.width * 0.05,
           ),
           Row(
             children: [
@@ -217,7 +216,9 @@ class DesktopNavBar extends StatelessWidget {
                 child: Container(
                   padding: const EdgeInsets.all(25),
                   child: SvgPicture.asset('assets/icons/instagram.svg',
-                      width: 30, height: 30, color: Colors.white),
+                      width: MediaQuery.of(context).size.width * .017,
+                      height: MediaQuery.of(context).size.width * .017,
+                      color: Colors.white),
                 ),
               ),
               GestureDetector(
@@ -227,7 +228,9 @@ class DesktopNavBar extends StatelessWidget {
                 child: Container(
                   padding: const EdgeInsets.all(25),
                   child: SvgPicture.asset('assets/icons/tiktok.svg',
-                      width: 30, height: 30, color: Colors.white),
+                      width: MediaQuery.of(context).size.width * .017,
+                      height: MediaQuery.of(context).size.width * .017,
+                      color: Colors.white),
                 ),
               ),
             ],
