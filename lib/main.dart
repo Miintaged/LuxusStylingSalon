@@ -39,50 +39,79 @@ bool inLandingRange(context, position) =>
     position > 0 && position < landingHeight(context);
 
 double aboutHeight(context) => MediaQuery.of(context).size.height;
-double aboutStart(context) => landingHeight(context) + MediaQuery.of(context).size.height * .1;
+double aboutStart(context) =>
+    landingHeight(context) + MediaQuery.of(context).size.height * .1;
 bool inAboutRange(context, position) =>
     position > aboutStart(context) &&
     position < aboutStart(context) + aboutHeight(context);
 
 double serviceHeight(context) => MediaQuery.of(context).size.height * 0.5;
-double serviceStart(context) => aboutStart(context) + aboutHeight(context) + MediaQuery.of(context).size.height * .1;
+double serviceStart(context) =>
+    aboutStart(context) +
+    aboutHeight(context) +
+    MediaQuery.of(context).size.height * .1;
 bool inServiceRange(context, position) =>
     position > serviceStart(context) &&
     position < serviceStart(context) + serviceHeight(context);
 
-double testimonialHeight(context) => isMobile(context) ? 0 : MediaQuery.of(context).size.height * 0.8;
-double testimonialStart(context) => serviceStart(context) + serviceHeight(context) +  MediaQuery.of(context).size.height * .1;
+double testimonialHeight(context) =>
+    isMobile(context) ? 0 : MediaQuery.of(context).size.height * 0.8;
+double testimonialStart(context) =>
+    serviceStart(context) +
+    serviceHeight(context) +
+    MediaQuery.of(context).size.height * .1;
 bool inTestimonialRange(context, position) =>
     position > testimonialStart(context) &&
     position < testimonialStart(context) + testimonialHeight(context);
 
 double galleryHeight(context) => MediaQuery.of(context).size.height;
-double galleryStart(context) => testimonialStart(context) + testimonialHeight(context) +  MediaQuery.of(context).size.height * .1;
+double galleryStart(context) =>
+    testimonialStart(context) +
+    testimonialHeight(context) +
+    MediaQuery.of(context).size.height * .1;
 bool inGalleryRange(context, position) =>
     position > galleryStart(context) &&
     position < galleryStart(context) + galleryHeight(context);
 
 double contactHeight(context) => MediaQuery.of(context).size.height * .7;
-double contactStart(context) => galleryStart(context) + galleryHeight(context) +  MediaQuery.of(context).size.height * .1;
+double contactStart(context) =>
+    galleryStart(context) +
+    galleryHeight(context) +
+    MediaQuery.of(context).size.height * .1;
 bool inContactRange(context, position) =>
     position > contactStart(context) &&
     position < contactStart(context) + contactHeight(context);
 
-void main() => runApp(Main());
+void main() => runApp(const Main());
 
 class Main extends StatelessWidget {
-  Main({super.key});
-
-  final List<String> sectionNames = [
-    'Home',
-    'Über uns',
-    'Dienstleistungen',
-    'Rezension',
-    'Kontakt'
-  ];
+  const Main({super.key});
 
   @override
   Widget build(BuildContext context) {
+    List<List<dynamic>> sectionNames = [
+      [
+        0,
+        'Home',
+      ],
+      [
+        aboutHeight(context),
+        'Über uns',
+      ],
+      [
+        serviceHeight(context),
+        'Dienstleistungen',
+      ],
+      [
+        testimonialHeight(context),
+        'Rezension',
+      ],
+      [
+        contactHeight(context),
+        'Kontakt',
+      ],
+    ];
+
     final List<Widget> sections = [
       const Landing(),
       verticalSpacingLarge(context),
@@ -112,63 +141,71 @@ class Main extends StatelessWidget {
         fontFamily: 'Oswald',
       ),
       home: Scaffold(
-          backgroundColor: greyZero,
-          body: SafeArea(
-            child: Stack(
-              children: [
-                ListView.builder(
-                  controller: scrollController,
-                  physics: const BouncingScrollPhysics(),
-                  itemCount: sections.length,
-                  itemBuilder: (context, index) {
-                    return sections[index];
-                  },
-                ),
-                Navbar(
-                  scrollController: scrollController,
-                )
-              ],
-            ),
+        backgroundColor: greyZero,
+        body: SafeArea(
+          child: Stack(
+            children: [
+              ListView.builder(
+                controller: scrollController,
+                physics: const BouncingScrollPhysics(),
+                itemCount: sections.length,
+                itemBuilder: (context, index) {
+                  return sections[index];
+                },
+              ),
+              Navbar(
+                scrollController: scrollController,
+              )
+            ],
           ),
-          drawer: isMobile(context)
-              ? Drawer(
-                  shape: const Border(),
-                  backgroundColor: greyZero.withOpacity(0.9),
-                  surfaceTintColor: Colors.transparent,
-                  child: ListView(
-                    children: [
-                      DrawerHeader(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(
-                              CupertinoIcons.scissors,
-                              size: 40,
-                              color: primaryColor,
-                            ),
-                            Text(
-                              'Luxus Styling Salon',
-                              style: TextStyle(color: primaryColor),
-                            ),
-                          ],
-                        ),
+        ),
+        drawer: isMobile(context)
+            ? Drawer(
+                shape: const Border(),
+                backgroundColor: greyZero.withOpacity(0.9),
+                surfaceTintColor: Colors.transparent,
+                child: ListView(
+                  children: [
+                    DrawerHeader(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            CupertinoIcons.scissors,
+                            size: 40,
+                            color: primaryColor,
+                          ),
+                          Text(
+                            'Luxus Styling Salon',
+                            style: TextStyle(color: primaryColor),
+                          ),
+                        ],
                       ),
-                      verticalSpacingMedium(context),
-                      ...sectionNames.map(
-                        (e) => Container(
+                    ),
+                    verticalSpacingMedium(context),
+                    ...sectionNames.map(
+                      (e) => GestureDetector(
+                        onTap: () => scrollController.animateTo(
+                          e[0],
+                          duration: const Duration(milliseconds: 300),
+                          curve: Curves.easeOut,
+                        ),
+                        child: Container(
                           height: MediaQuery.of(context).size.height * 0.15,
                           width: MediaQuery.of(context).size.width,
                           alignment: Alignment.center,
                           child: Text(
-                            e,
+                            e[1],
                             style: TextStyle(fontSize: 20, color: primaryColor),
                           ),
                         ),
                       ),
-                    ],
-                  ),
-                )
-              : null),
+                    ),
+                  ],
+                ),
+              )
+            : null,
+      ),
       debugShowCheckedModeBanner: false,
     );
   }
