@@ -75,7 +75,7 @@ class _AboutState extends State<About> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Text(
-              'Location',
+              'Ort',
               style: TextStyle(
                   fontSize: 30, color: Colors.white, letterSpacing: 2),
             ),
@@ -165,14 +165,19 @@ class _AboutState extends State<About> {
         ),
       )
     ];
+
     return LayoutBuilder(
       builder: (context, constraints) => Container(
+        height: main.aboutHeight(context),
         width: MediaQuery.of(context).size.width,
         padding: EdgeInsets.all(MediaQuery.of(context).size.height * 0.05),
+        color: Colors.green,
         child: Column(
           children: [
+            main.verticalSpacingLarge(context),
+            main.verticalSpacingLarge(context),
             Text(
-              'Über uns',
+              'ÜBER UNS',
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: constraints.maxWidth <= 800
@@ -194,5 +199,6 @@ class _AboutState extends State<About> {
         ),
       ),
     );
+    
   }
 }

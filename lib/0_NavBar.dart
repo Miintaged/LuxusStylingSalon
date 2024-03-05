@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:luxus_styling_salon/1_Landing.dart';
 import 'package:luxus_styling_salon/main.dart' as main;
 import 'package:url_launcher/url_launcher.dart';
 
@@ -8,19 +9,24 @@ Uri instagram_url = Uri.parse('https://www.instagram.com/luxus_styling_salon/');
 Uri tiktok_url = Uri.parse('https://www.tiktok.com/@luxusstylingsalon');
 
 Future<void> _launchInstagram() async {
-    if (!await launchUrl(instagram_url)) {
-      throw Exception('Could not launch $instagram_url');
-    }
+  if (!await launchUrl(instagram_url)) {
+    throw Exception('Could not launch $instagram_url');
   }
+}
 
-  Future<void> _launchTiktok() async {
-    if (!await launchUrl(tiktok_url)) {
-      throw Exception('Could not launch $tiktok_url');
-    }
+Future<void> _launchTiktok() async {
+  if (!await launchUrl(tiktok_url)) {
+    throw Exception('Could not launch $tiktok_url');
   }
+}
 
 class Navbar extends StatefulWidget {
-  const Navbar({super.key});
+  const Navbar({
+    super.key,
+    required this.scrollController,
+  });
+
+  final ScrollController scrollController;
 
   @override
   State<Navbar> createState() => _NavbarState();
@@ -36,15 +42,22 @@ class _NavbarState extends State<Navbar> {
   @override
   Widget build(BuildContext context) {
     return MediaQuery.of(context).size.width > 800
-        ? const DesktopNavBar()
-        : const MobileNavBar();
+        ? DesktopNavBar(
+            scrollController: widget.scrollController,
+          )
+        : MobileNavBar(
+            scrollController: widget.scrollController,
+          );
   }
 }
 
 class MobileNavBar extends StatelessWidget {
   const MobileNavBar({
     super.key,
+    required this.scrollController,
   });
+
+  final ScrollController scrollController;
 
   @override
   Widget build(BuildContext context) {
@@ -102,7 +115,10 @@ class MobileNavBar extends StatelessWidget {
 class DesktopNavBar extends StatelessWidget {
   const DesktopNavBar({
     super.key,
+    required this.scrollController,
   });
+
+  final ScrollController scrollController;
 
   @override
   Widget build(BuildContext context) {
@@ -134,24 +150,58 @@ class DesktopNavBar extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              const SectionButton(
+              SectionButton(
                 buttonText: 'Home',
+                onPressed: () => scrollController.animateTo(
+                  0,
+                  duration: const Duration(milliseconds: 300),
+                  curve: Curves.easeOut,
+                ),
               ),
               main.horizontalSpacingMedium(context),
-              const SectionButton(
+              SectionButton(
                 buttonText: 'Über uns',
+                onPressed: () => scrollController.animateTo(
+                  main.aboutStart(context),
+                  duration: const Duration(milliseconds: 300),
+                  curve: Curves.easeOut,
+                ),
               ),
               main.horizontalSpacingMedium(context),
-              const SectionButton(
+              SectionButton(
                 buttonText: 'Dientleistungen',
+                onPressed: () => scrollController.animateTo(
+                  main.serviceStart(context),
+                  duration: const Duration(milliseconds: 300),
+                  curve: Curves.easeOut,
+                ),
               ),
               main.horizontalSpacingMedium(context),
-              const SectionButton(
+              SectionButton(
                 buttonText: 'Rezensionen',
+                onPressed: () => scrollController.animateTo(
+                  main.testimonialStart(context),
+                  duration: const Duration(milliseconds: 300),
+                  curve: Curves.easeOut,
+                ),
               ),
               main.horizontalSpacingMedium(context),
-              const SectionButton(
+              SectionButton(
+                buttonText: 'Gallerie',
+                onPressed: () => scrollController.animateTo(
+                  main.galleryStart(context),
+                  duration: const Duration(milliseconds: 300),
+                  curve: Curves.easeOut,
+                ),
+              ),
+              main.horizontalSpacingMedium(context),
+              SectionButton(
                 buttonText: 'Kontakt',
+                onPressed: () => scrollController.animateTo(
+                  main.contactStart(context),
+                  duration: const Duration(milliseconds: 300),
+                  curve: Curves.easeOut,
+                ),
               ),
             ],
           ),
@@ -189,17 +239,19 @@ class DesktopNavBar extends StatelessWidget {
 }
 
 class SectionButton extends StatelessWidget {
-  final String buttonText;
-
   const SectionButton({
     super.key,
     required this.buttonText,
+    required this.onPressed,
   });
+
+  final String buttonText;
+  final Function() onPressed;
 
   @override
   Widget build(BuildContext context) {
     return TextButton(
-      onPressed: () {},
+      onPressed: onPressed,
       style: ButtonStyle(
         overlayColor: MaterialStateColor.resolveWith(
           (states) => Colors.transparent,

@@ -16,14 +16,13 @@ class _TestimoialsState extends State<Testimoials> {
         padding: EdgeInsets.symmetric(
           horizontal: MediaQuery.of(context).size.width * 0.045,
         ),
-        height: constraints.maxWidth <= 800
-            ? null
-            : MediaQuery.of(context).size.height * 0.8,
+        height: main.testimonialHeight(context),
         width: MediaQuery.of(context).size.width,
+        color: Colors.red,
         child: Column(
           children: [
             Text(
-              'Rezensionen',
+              'REZENSIONEN',
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: MediaQuery.of(context).size.width <= 800

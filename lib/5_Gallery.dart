@@ -57,7 +57,7 @@ class Gallery extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double height = MediaQuery.of(context).size.height;
+    double height = main.galleryHeight(context);
     double width = MediaQuery.of(context).size.width;
     return LayoutBuilder(
       builder: (context, constraints) {

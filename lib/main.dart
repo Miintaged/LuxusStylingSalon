@@ -5,8 +5,8 @@ import 'package:luxus_styling_salon/1_Landing.dart';
 import 'package:luxus_styling_salon/2_About.dart';
 import 'package:luxus_styling_salon/4_Testimonials.dart';
 import 'package:luxus_styling_salon/3_Services.dart';
-import 'package:luxus_styling_salon/5_Contact.dart';
-import 'package:luxus_styling_salon/6_Gallery.dart';
+import 'package:luxus_styling_salon/6_Contact.dart';
+import 'package:luxus_styling_salon/5_Gallery.dart';
 import 'package:luxus_styling_salon/7_Footer.dart';
 
 Color primaryColor = const Color.fromARGB(255, 209, 152, 38);
@@ -32,12 +32,48 @@ SizedBox verticalSpacingLarge(context) => SizedBox(
       height: MediaQuery.of(context).size.height * 0.05,
     );
 
+double landingHeight(context) => isMobile(context)
+    ? MediaQuery.of(context).size.height * .8
+    : MediaQuery.of(context).size.height;
+bool inLandingRange(context, position) =>
+    position > 0 && position < landingHeight(context);
+
+double aboutHeight(context) => MediaQuery.of(context).size.height;
+double aboutStart(context) => landingHeight(context) + MediaQuery.of(context).size.height * .1;
+bool inAboutRange(context, position) =>
+    position > aboutStart(context) &&
+    position < aboutStart(context) + aboutHeight(context);
+
+double serviceHeight(context) => MediaQuery.of(context).size.height * 0.5;
+double serviceStart(context) => aboutStart(context) + aboutHeight(context) + MediaQuery.of(context).size.height * .1;
+bool inServiceRange(context, position) =>
+    position > serviceStart(context) &&
+    position < serviceStart(context) + serviceHeight(context);
+
+double testimonialHeight(context) => isMobile(context) ? 0 : MediaQuery.of(context).size.height * 0.8;
+double testimonialStart(context) => serviceStart(context) + serviceHeight(context) +  MediaQuery.of(context).size.height * .1;
+bool inTestimonialRange(context, position) =>
+    position > testimonialStart(context) &&
+    position < testimonialStart(context) + testimonialHeight(context);
+
+double galleryHeight(context) => MediaQuery.of(context).size.height;
+double galleryStart(context) => testimonialStart(context) + testimonialHeight(context) +  MediaQuery.of(context).size.height * .1;
+bool inGalleryRange(context, position) =>
+    position > galleryStart(context) &&
+    position < galleryStart(context) + galleryHeight(context);
+
+double contactHeight(context) => MediaQuery.of(context).size.height * .7;
+double contactStart(context) => galleryStart(context) + galleryHeight(context) +  MediaQuery.of(context).size.height * .1;
+bool inContactRange(context, position) =>
+    position > contactStart(context) &&
+    position < contactStart(context) + contactHeight(context);
+
 void main() => runApp(Main());
 
 class Main extends StatelessWidget {
   Main({super.key});
 
-  List<String> sectionNames = [
+  final List<String> sectionNames = [
     'Home',
     'Über uns',
     'Dienstleistungen',
@@ -67,6 +103,8 @@ class Main extends StatelessWidget {
       const Footer()
     ];
 
+    ScrollController scrollController = ScrollController();
+
     return MaterialApp(
       title: 'Luxus Styling Salon',
       theme: ThemeData(
@@ -79,13 +117,16 @@ class Main extends StatelessWidget {
             child: Stack(
               children: [
                 ListView.builder(
+                  controller: scrollController,
                   physics: const BouncingScrollPhysics(),
                   itemCount: sections.length,
                   itemBuilder: (context, index) {
                     return sections[index];
                   },
                 ),
-                const Navbar()
+                Navbar(
+                  scrollController: scrollController,
+                )
               ],
             ),
           ),

@@ -12,11 +12,10 @@ class _LandingState extends State<Landing> {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
-    double height = MediaQuery.of(context).size.height;
 
     return LayoutBuilder(
       builder: (context, constraints) => SizedBox(
-        height: constraints.maxWidth <= 800 ? height * .7 : height,
+        height: main.landingHeight(context),
         width: MediaQuery.of(context).size.width,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
