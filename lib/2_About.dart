@@ -171,7 +171,6 @@ class _AboutState extends State<About> {
         height: main.aboutHeight(context),
         width: MediaQuery.of(context).size.width,
         padding: EdgeInsets.all(MediaQuery.of(context).size.height * 0.05),
-        color: Colors.green,
         child: Column(
           children: [
             main.verticalSpacingLarge(context),

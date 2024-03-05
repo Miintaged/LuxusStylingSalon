@@ -244,8 +244,8 @@ class _ContactState extends State<Contact> {
                 main.verticalSpacingLarge(context),
                 Container(
                   color: main.greyOne,
-                  height: width * .5,
-                  width: width * .75,
+                  height: width * .45,
+                  width: width * .7,
                   child: Row(
                     children: [
                       Image.network(

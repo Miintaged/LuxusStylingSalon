@@ -44,13 +44,13 @@ bool inAboutRange(context, position) =>
     position > aboutStart(context) &&
     position < aboutStart(context) + aboutHeight(context);
 
-double serviceHeight(context) => MediaQuery.of(context).size.height * 0.5;
+double serviceHeight(context) => MediaQuery.of(context).size.height * 0.8;
 double serviceStart(context) => aboutStart(context) + aboutHeight(context) + MediaQuery.of(context).size.height * .1;
 bool inServiceRange(context, position) =>
     position > serviceStart(context) &&
     position < serviceStart(context) + serviceHeight(context);
 
-double testimonialHeight(context) => isMobile(context) ? 0 : MediaQuery.of(context).size.height * 0.8;
+double testimonialHeight(context) => isMobile(context) ? 0 : MediaQuery.of(context).size.height;
 double testimonialStart(context) => serviceStart(context) + serviceHeight(context) +  MediaQuery.of(context).size.height * .1;
 bool inTestimonialRange(context, position) =>
     position > testimonialStart(context) &&
@@ -62,7 +62,7 @@ bool inGalleryRange(context, position) =>
     position > galleryStart(context) &&
     position < galleryStart(context) + galleryHeight(context);
 
-double contactHeight(context) => MediaQuery.of(context).size.height * .7;
+double contactHeight(context) => MediaQuery.of(context).size.height;
 double contactStart(context) => galleryStart(context) + galleryHeight(context) +  MediaQuery.of(context).size.height * .1;
 bool inContactRange(context, position) =>
     position > contactStart(context) &&

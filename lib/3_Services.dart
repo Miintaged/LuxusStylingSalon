@@ -102,6 +102,8 @@ class _ServicesState extends State<Services> {
       width: MediaQuery.of(context).size.width,
       child: Column(
         children: [
+          main.verticalSpacingLarge(context),
+          main.verticalSpacingLarge(context),
           Text(
             'DIENSTLEISTUNGEN',
             style: TextStyle(
@@ -168,7 +170,7 @@ class ServiceWidget extends StatelessWidget {
           right: MediaQuery.of(context).size.width * 0.02),
       width: MediaQuery.of(context).size.width *
           (MediaQuery.of(context).size.width <= 800 ? .9 : 0.27),
-      height: main.serviceHeight(context),
+      height: MediaQuery.of(context).size.height * 0.5,
       decoration: BoxDecoration(
         color: main.greyOne,
       ),

@@ -18,9 +18,10 @@ class _TestimoialsState extends State<Testimoials> {
         ),
         height: main.testimonialHeight(context),
         width: MediaQuery.of(context).size.width,
-        color: Colors.red,
         child: Column(
           children: [
+            main.verticalSpacingLarge(context),
+            main.verticalSpacingLarge(context),
             Text(
               'REZENSIONEN',
               style: TextStyle(
@@ -51,52 +52,47 @@ class _TestimoialsState extends State<Testimoials> {
                 SizedBox(
                   width: MediaQuery.of(context).size.width * 0.1,
                 ),
-                Stack(
-                  clipBehavior: Clip.none,
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                    Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              'Eine Kundin sagt',
-                              style: TextStyle(
-                                color: main.primaryColor,
-                                fontSize: MediaQuery.of(context).size.width *
-                                    (constraints.maxWidth <= 800 ? .08 : .035),
-                              ),
-                            ),
-                          ],
-                        ),
-                        SizedBox(
-                          height: MediaQuery.of(context).size.height *
-                              (constraints.maxWidth <= 800 ? .02 : .04),
-                        ),
-                        SizedBox(
-                          width: MediaQuery.of(context).size.width *
-                              (constraints.maxWidth <= 800 ? .8 : .4),
-                          child: Text(
-                            'I was very happy because I chose my hairstyle here. The barber is very friendly, gives excellent treatment and has great techniques to choose a suitable hairstyle for your hair. I advise everyone in the town or tourists to choose a new haircut here.',
-                            style: TextStyle(
-                              color: const Color.fromARGB(255, 179, 179, 179),
-                              fontSize: MediaQuery.of(context).size.width *
-                                  (constraints.maxWidth <= 800 ? .04 : .015),
-                            ),
-                          ),
-                        ),
-                        main.verticalSpacingMedium(context),
                         Text(
-                          '- Laura Müller',
+                          'Eine Kundin sagt',
                           style: TextStyle(
-                            color: Colors.white,
+                            color: main.primaryColor,
                             fontSize: MediaQuery.of(context).size.width *
-                                (constraints.maxWidth <= 800 ? .04 : .015),
+                                (constraints.maxWidth <= 800 ? .08 : .035),
                           ),
                         ),
                       ],
+                    ),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height *
+                          (constraints.maxWidth <= 800 ? .02 : .04),
+                    ),
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width *
+                          (constraints.maxWidth <= 800 ? .8 : .4),
+                      child: Text(
+                        'I was very happy because I chose my hairstyle here. The barber is very friendly, gives excellent treatment and has great techniques to choose a suitable hairstyle for your hair. I advise everyone in the town or tourists to choose a new haircut here.',
+                        style: TextStyle(
+                          color: const Color.fromARGB(255, 179, 179, 179),
+                          fontSize: MediaQuery.of(context).size.width *
+                              (constraints.maxWidth <= 800 ? .04 : .015),
+                        ),
+                      ),
+                    ),
+                    main.verticalSpacingMedium(context),
+                    Text(
+                      '- Laura Müller',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: MediaQuery.of(context).size.width *
+                            (constraints.maxWidth <= 800 ? .04 : .015),
+                      ),
                     ),
                   ],
                 )

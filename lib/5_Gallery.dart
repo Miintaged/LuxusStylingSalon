@@ -71,6 +71,8 @@ class Gallery extends StatelessWidget {
             ),
             child: Column(
               children: [
+                main.verticalSpacingLarge(context),
+                main.verticalSpacingLarge(context),
                 Text(
                   'GALLERIE',
                   style: TextStyle(
