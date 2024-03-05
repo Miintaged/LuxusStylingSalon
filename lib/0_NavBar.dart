@@ -8,16 +8,16 @@ Uri instagram_url = Uri.parse('https://www.instagram.com/luxus_styling_salon/');
 Uri tiktok_url = Uri.parse('https://www.tiktok.com/@luxusstylingsalon');
 
 Future<void> _launchInstagram() async {
-    if (!await launchUrl(instagram_url)) {
-      throw Exception('Could not launch $instagram_url');
-    }
+  if (!await launchUrl(instagram_url)) {
+    throw Exception('Could not launch $instagram_url');
   }
+}
 
-  Future<void> _launchTiktok() async {
-    if (!await launchUrl(tiktok_url)) {
-      throw Exception('Could not launch $tiktok_url');
-    }
+Future<void> _launchTiktok() async {
+  if (!await launchUrl(tiktok_url)) {
+    throw Exception('Could not launch $tiktok_url');
   }
+}
 
 class Navbar extends StatefulWidget {
   const Navbar({super.key});
@@ -109,8 +109,7 @@ class DesktopNavBar extends StatelessWidget {
     return Container(
       height: MediaQuery.of(context).size.height * 0.09,
       width: MediaQuery.of(context).size.width,
-      padding: EdgeInsets.symmetric(
-          horizontal: MediaQuery.of(context).size.width * 0.05),
+      padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.05),
       color: Colors.white.withOpacity(0.1),
       child: Row(
         children: [
@@ -129,7 +128,7 @@ class DesktopNavBar extends StatelessWidget {
             ],
           ),
           SizedBox(
-            width: MediaQuery.of(context).size.width * 0.15,
+            width: MediaQuery.of(context).size.width * 0.05,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -156,7 +155,7 @@ class DesktopNavBar extends StatelessWidget {
             ],
           ),
           SizedBox(
-            width: MediaQuery.of(context).size.width * 0.15,
+            width: MediaQuery.of(context).size.width * 0.05,
           ),
           Row(
             children: [
@@ -167,7 +166,9 @@ class DesktopNavBar extends StatelessWidget {
                 child: Container(
                   padding: const EdgeInsets.all(25),
                   child: SvgPicture.asset('assets/icons/instagram.svg',
-                      width: 30, height: 30, color: Colors.white),
+                      width: MediaQuery.of(context).size.width * .017,
+                      height: MediaQuery.of(context).size.width * .017,
+                      color: Colors.white),
                 ),
               ),
               GestureDetector(
@@ -177,7 +178,9 @@ class DesktopNavBar extends StatelessWidget {
                 child: Container(
                   padding: const EdgeInsets.all(25),
                   child: SvgPicture.asset('assets/icons/tiktok.svg',
-                      width: 30, height: 30, color: Colors.white),
+                      width: MediaQuery.of(context).size.width * .017,
+                      height: MediaQuery.of(context).size.width * .017,
+                      color: Colors.white),
                 ),
               ),
             ],
