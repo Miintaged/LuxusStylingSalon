@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:luxus_styling_salon/1_Landing.dart';
 import 'package:luxus_styling_salon/main.dart' as main;
 import 'package:url_launcher/url_launcher.dart';
 
